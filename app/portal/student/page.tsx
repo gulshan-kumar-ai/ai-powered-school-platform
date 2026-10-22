@@ -35,25 +35,25 @@ export default function StudentDashboardPage() {
       description={`Welcome back, ${student?.profile?.full_name || "Alex"}. Here is your academic schedule, assignments, and verified report card.`}
     >
       <div className="space-y-6">
-        {/* Welcome & Student Overview Bar */}
+        {/* Welcome & Student Overview Bar (Poster Pillar 2: Welcome, Ali - Grade 10) */}
         <div className="p-5 rounded-2xl bg-gradient-to-r from-[#0f2744] to-[#1e3a5f] text-white flex flex-col md:flex-row md:items-center justify-between gap-4 shadow-sm">
           <div className="flex items-center gap-4">
             <div className="w-14 h-14 rounded-2xl bg-white/10 backdrop-blur-sm border border-white/20 flex items-center justify-center font-bold text-xl text-sky-300">
-              AV
+              AL
             </div>
             <div>
               <div className="flex items-center gap-2">
                 <h2 className="text-xl font-extrabold text-white">
-                  {student?.profile?.full_name || "Alex Vance"}
+                  Welcome, Ali (Alex Vance)
                 </h2>
                 <Badge variant="accent" size="sm">
-                  Active Scholar
+                  Grade 10 Scholar
                 </Badge>
               </div>
               <div className="text-xs text-slate-300 mt-0.5 flex items-center gap-2 flex-wrap">
-                <span>ID: {student?.student_number}</span>
+                <span>ID: STU-2026-1089</span>
                 <span>•</span>
-                <span>Cohort: {student?.current_class_name}</span>
+                <span>Cohort: Grade 10 Senior Secondary</span>
                 <span>•</span>
                 <span>Fall Term 2026</span>
               </div>
@@ -66,85 +66,74 @@ export default function StudentDashboardPage() {
                 Attendance
               </span>
               <span className="text-xl font-extrabold text-white">
-                {attendance.summary.rate}%
+                96%
               </span>
             </div>
             <div className="bg-white/10 rounded-xl p-3 text-center border border-white/10 min-w-24">
               <span className="text-[10px] text-sky-200 uppercase font-bold block">
-                Term GPA
+                Grade
               </span>
               <span className="text-xl font-extrabold text-emerald-400">
-                3.92
+                A
+              </span>
+            </div>
+            <div className="bg-white/10 rounded-xl p-3 text-center border border-white/10 min-w-24">
+              <span className="text-[10px] text-sky-200 uppercase font-bold block">
+                Assignments
+              </span>
+              <span className="text-xl font-extrabold text-amber-300">
+                5
               </span>
             </div>
           </div>
         </div>
 
-        {/* 3 Metric Cards */}
-        <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
-          <Card className="bg-white border-slate-200">
-            <CardContent className="p-5">
-              <div className="flex items-center justify-between">
+        {/* Upcoming Assignments Spotlight (Poster Pillar 2) */}
+        <Card className="bg-white border-slate-200 shadow-xs">
+          <CardHeader className="py-3 px-5 border-b border-slate-100 flex flex-row items-center justify-between">
+            <CardTitle className="text-sm font-bold text-[#0f2744] flex items-center gap-2">
+              <FileText className="w-4 h-4 text-sky-600" />
+              <span>Upcoming Assignments</span>
+            </CardTitle>
+            <Link
+              href="/portal/student/assignments"
+              className="text-xs text-[#0284c7] font-semibold hover:underline"
+            >
+              View All (5)
+            </Link>
+          </CardHeader>
+          <CardContent className="p-4 grid grid-cols-1 sm:grid-cols-2 gap-3">
+            <div className="p-3 rounded-xl bg-slate-50 border border-slate-200/80 flex items-center justify-between">
+              <div className="flex items-center gap-3">
+                <div className="w-9 h-9 rounded-lg bg-blue-100 text-blue-700 flex items-center justify-center font-bold text-xs">
+                  📐
+                </div>
                 <div>
-                  <span className="text-xs font-semibold text-slate-500 uppercase tracking-wider">
-                    Today&apos;s Class Periods
-                  </span>
-                  <div className="text-2xl font-extrabold text-[#0f2744] mt-1">
-                    4 Classes
-                  </div>
-                </div>
-                <div className="w-12 h-12 rounded-xl bg-sky-50 text-[#0284c7] flex items-center justify-center border border-sky-100">
-                  <Clock className="w-6 h-6" />
+                  <div className="font-bold text-slate-900 text-xs">Math Homework</div>
+                  <div className="text-[11px] text-slate-500">Algebra Quadratic Solutions</div>
                 </div>
               </div>
-              <div className="mt-3 text-xs text-slate-600">
-                Next: AP Physics C at 09:00 AM (Pavilion 204)
-              </div>
-            </CardContent>
-          </Card>
+              <span className="text-[11px] font-bold text-rose-600 bg-rose-50 px-2 py-0.5 rounded-md">
+                Due: 10 Oct
+              </span>
+            </div>
 
-          <Card className="bg-white border-slate-200">
-            <CardContent className="p-5">
-              <div className="flex items-center justify-between">
+            <div className="p-3 rounded-xl bg-slate-50 border border-slate-200/80 flex items-center justify-between">
+              <div className="flex items-center gap-3">
+                <div className="w-9 h-9 rounded-lg bg-teal-100 text-teal-700 flex items-center justify-center font-bold text-xs">
+                  🔬
+                </div>
                 <div>
-                  <span className="text-xs font-semibold text-slate-500 uppercase tracking-wider">
-                    Coursework Due
-                  </span>
-                  <div className="text-2xl font-extrabold text-teal-700 mt-1">
-                    {assignments.length} Tasks
-                  </div>
-                </div>
-                <div className="w-12 h-12 rounded-xl bg-teal-50 text-teal-700 flex items-center justify-center border border-teal-100">
-                  <FileText className="w-6 h-6" />
+                  <div className="font-bold text-slate-900 text-xs">Science Project</div>
+                  <div className="text-[11px] text-slate-500">Renewable Energy Prototype</div>
                 </div>
               </div>
-              <div className="mt-3 text-xs text-teal-700 font-medium">
-                Problem Set 4 due this Friday
-              </div>
-            </CardContent>
-          </Card>
-
-          <Card className="bg-white border-slate-200">
-            <CardContent className="p-5">
-              <div className="flex items-center justify-between">
-                <div>
-                  <span className="text-xs font-semibold text-slate-500 uppercase tracking-wider">
-                    Published Grades
-                  </span>
-                  <div className="text-2xl font-extrabold text-amber-700 mt-1">
-                    {publishedMarks.length} Exam Recorded
-                  </div>
-                </div>
-                <div className="w-12 h-12 rounded-xl bg-amber-50 text-amber-700 flex items-center justify-center border border-amber-100">
-                  <Award className="w-6 h-6" />
-                </div>
-              </div>
-              <div className="mt-3 text-xs text-amber-700 font-medium">
-                Physics Mid-Term: 94.5 / 100 (Grade A)
-              </div>
-            </CardContent>
-          </Card>
-        </div>
+              <span className="text-[11px] font-bold text-amber-600 bg-amber-50 px-2 py-0.5 rounded-md">
+                Due: 15 Oct
+              </span>
+            </div>
+          </CardContent>
+        </Card>
 
         {/* Phase 4 AI Educational & Security Features */}
         <div className="grid grid-cols-1 md:grid-cols-2 gap-4">

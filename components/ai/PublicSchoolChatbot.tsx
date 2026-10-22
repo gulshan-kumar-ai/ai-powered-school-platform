@@ -30,10 +30,11 @@ const INITIAL_PUBLIC_WELCOME: PublicChatbotMessage = {
   id: "pub-welcome",
   role: "assistant",
   content:
-    "Hello and welcome to Govt. Boys Qazi Sultan Higher Secondary School, Kunri! I am your AI campus guide. Ask me anything about our admissions timeline, academic curriculum, tuition & scholarships, office hours, or campus events.",
+    "Hello and welcome to Govt. Boys Qazi Sultan Higher Secondary School, Kunri! I am your AI campus guide. Ask me anything about our Principal Sir Rahmatullah Lashari, admissions guidelines, BISE Mirpur Khas academic streams, office hours, or explore our Competition Demo Console.",
   citations: [
-    { title: "Admissions & Tuition", url: "/admissions" },
+    { title: "Principal's Desk & Leadership", url: "/about#principals-message" },
     { title: "Academic Programs", url: "/academics" },
+    { title: "Competition Demo Mode", url: "/demo" },
     { title: "Contact School Office", url: "/contact" },
   ],
   timestamp: new Date().toLocaleTimeString([], { hour: "2-digit", minute: "2-digit" }),
@@ -42,10 +43,14 @@ const INITIAL_PUBLIC_WELCOME: PublicChatbotMessage = {
 };
 
 const SUGGESTED_QUICK_QUESTIONS = [
-  "What are your office hours?",
-  "How do I apply for admission?",
-  "What AP courses are offered?",
-  "What is the student attendance policy?",
+  "Can you explain photosynthesis in simple words?",
+  "Who is the School Principal?",
+  "Who are the Teachers & Faculty?",
+  "What academic streams are offered?",
+  "How do I apply for admissions?",
+  "What are your office hours & location?",
+  "Show me campus photos & gallery",
+  "How do I access Demo Mode?",
 ];
 
 async function readChatStream(
@@ -156,13 +161,13 @@ export function PublicSchoolChatbot() {
       .then((res) => res.json())
       .then((data) => {
         if (data.isConfigured && data.provider === "fast_and_super") {
-          setProviderMode("Fast & Super AI (Ready)");
+          setProviderMode("Fast & Super AI (Active)");
         } else {
-          setProviderMode("School Knowledge AI (Offline Mode)");
+          setProviderMode("School Knowledge AI (Active)");
         }
       })
       .catch(() => {
-        setProviderMode("School Knowledge AI (Offline Mode)");
+        setProviderMode("School Knowledge AI (Active)");
       });
   }, []);
 
@@ -332,13 +337,13 @@ export function PublicSchoolChatbot() {
       .then((res) => res.json())
       .then((data) => {
         if (data.isConfigured && data.provider === "fast_and_super") {
-          setProviderMode("Fast & Super AI (Ready)");
+          setProviderMode("Fast & Super AI (Active)");
         } else {
-          setProviderMode("School Knowledge AI (Offline Mode)");
+          setProviderMode("School Knowledge AI (Active)");
         }
       })
       .catch(() => {
-        setProviderMode("School Knowledge AI (Offline Mode)");
+        setProviderMode("School Knowledge AI (Active)");
       });
   };
 
@@ -452,9 +457,9 @@ export function PublicSchoolChatbot() {
                             Live Fast & Super AI (Cloud Inference)
                           </span>
                         ) : (
-                          <span className="inline-flex items-center gap-1 px-2 py-0.5 rounded-full bg-slate-200/90 text-[9px] font-medium text-slate-700 border border-slate-300">
-                            <ShieldCheck className="w-2.5 h-2.5 text-slate-600" />
-                            Verified School Records (Local Offline Fallback)
+                          <span className="inline-flex items-center gap-1 px-2 py-0.5 rounded-full bg-slate-200/90 text-[9px] font-semibold text-slate-700 border border-slate-300">
+                            <ShieldCheck className="w-2.5 h-2.5 text-emerald-600" />
+                            Verified School Knowledge Base (Grounded)
                           </span>
                         )}
                       </div>
@@ -524,23 +529,25 @@ export function PublicSchoolChatbot() {
             <div ref={messagesEndRef} />
           </div>
 
-          {/* Suggested Quick Prompts */}
-          {messages.length <= 2 && (
-            <div className="px-3 py-2 bg-slate-50 border-t border-slate-200/60 overflow-x-auto">
-              <div className="flex items-center gap-1.5">
-                {SUGGESTED_QUICK_QUESTIONS.map((q, i) => (
-                  <button
-                    key={i}
-                    onClick={() => handleSendMessage(q)}
-                    disabled={isLoading}
-                    className="whitespace-nowrap px-2.5 py-1 rounded-full bg-white border border-slate-300 text-[11px] font-medium text-slate-700 hover:bg-sky-50 hover:border-sky-300 hover:text-sky-700 transition-colors disabled:opacity-50"
-                  >
-                    {q}
-                  </button>
-                ))}
-              </div>
+          {/* Suggested Quick Prompts (Always accessible scrollbar) */}
+          <div className="px-3 py-2 bg-slate-50 border-t border-slate-200/80 shrink-0">
+            <div className="flex items-center gap-1.5 overflow-x-auto scrollbar-none pb-0.5">
+              <span className="text-[10px] text-slate-400 font-semibold uppercase tracking-wider shrink-0 mr-0.5">
+                Quick:
+              </span>
+              {SUGGESTED_QUICK_QUESTIONS.map((q, i) => (
+                <button
+                  key={i}
+                  type="button"
+                  onClick={() => handleSendMessage(q)}
+                  disabled={isLoading}
+                  className="shrink-0 whitespace-nowrap px-2.5 py-1 rounded-full bg-white border border-slate-300 text-[11px] font-medium text-slate-700 hover:bg-sky-50 hover:border-sky-400 hover:text-sky-700 active:scale-95 transition-all shadow-2xs disabled:opacity-50 cursor-pointer"
+                >
+                  {q}
+                </button>
+              ))}
             </div>
-          )}
+          </div>
 
           {/* Input Footer */}
           <form
@@ -561,14 +568,14 @@ export function PublicSchoolChatbot() {
                   handleSendMessage();
                 }
               }}
-              placeholder="Ask a general or school question..."
+              placeholder="Ask about principal, admissions, faculty, courses, campus..."
               disabled={isLoading}
               className="flex-1 px-3 py-2 rounded-xl border border-slate-300 text-xs focus:ring-2 focus:ring-sky-500 focus:outline-hidden disabled:bg-slate-50"
             />
             <button
               type="submit"
               disabled={!inputQuery.trim() || isLoading}
-              className="p-2 rounded-xl bg-sky-600 hover:bg-sky-700 disabled:opacity-50 text-white transition-colors"
+              className="p-2 rounded-xl bg-sky-600 hover:bg-sky-700 disabled:opacity-50 text-white transition-colors cursor-pointer"
               aria-label="Send message"
             >
               <Send className="w-4 h-4" />

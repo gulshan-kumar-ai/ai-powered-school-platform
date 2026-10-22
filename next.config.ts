@@ -34,7 +34,7 @@ const securityHeaders = [
       "font-src 'self' https://fonts.gstatic.com data:",
       "img-src 'self' data: blob: https:",
       "frame-src 'self' https://www.youtube-nocookie.com https://www.youtube.com",
-      "connect-src 'self' https: wss:",
+      "connect-src 'self' https: wss: ws:",
     ].join("; "),
   },
 ];
@@ -43,6 +43,12 @@ const nextConfig: NextConfig = {
   output: "standalone",
   cacheComponents: true,
   partialPrefetching: true,
+  allowedDevOrigins: [
+    "192.168.2.222",
+    "192.168.2.222:3000",
+    "localhost:3000",
+    "127.0.0.1:3000",
+  ],
   turbopack: {
     rules: {
       "*.css": {

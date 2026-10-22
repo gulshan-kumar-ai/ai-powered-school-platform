@@ -172,6 +172,27 @@ ${citationSnippet}
   }
 
   // C. TOPIC-SPECIFIC SOCRATIC RESPONSES
+  if (queryLower.includes("photosynthesis") || queryLower.includes("plants make food")) {
+    return `### 🌿 Understanding Photosynthesis in Simple Words
+
+**Of course! Photosynthesis is the process by which green plants make their own food using sunlight.**
+
+#### 1. The 3 Essential Ingredients:
+* ☀️ **Sunlight**: Light energy captured by green chlorophyll inside plant leaves.
+* 💧 **Water ($H_2O$)**: Absorbed by roots from the soil.
+* 🌬️ **Carbon Dioxide ($CO_2$)**: Taken in from the air through microscopic leaf pores (stomata).
+
+#### 2. What Plants Produce (The Products):
+* 🍬 **Glucose ($C_6H_{12}O_6$)**: Nutritious food used by the plant for energy and growth.
+* 💨 **Oxygen ($O_2$)**: Released back into the atmosphere for all living things to breathe!
+
+#### 3. The Balanced Equation:
+$$6CO_2 + 6H_2O + \\text{Sunlight Energy} \\longrightarrow C_6H_{12}O_6 + 6O_2$$
+${citationSnippet}
+
+**Check Your Understanding**: Which plant cell organelle contains the chlorophyll pigment responsible for capturing sunlight? *(Hint: It's called the chloroplast!)*`;
+  }
+
   if (queryLower.includes("torque") || queryLower.includes("angular momentum")) {
     return `### 🔄 Rotational Dynamics & Angular Momentum
 

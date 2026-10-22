@@ -1,6 +1,92 @@
 import { Announcement } from "@/types";
 
 export const schoolNews: Announcement[] = [
+  // Poster Pillar 4: Notices & Announcements
+  {
+    id: "ann-poster-1",
+    title: "School will be closed on 12 October",
+    category: "notice",
+    date: "2026-10-10",
+    summary:
+      "GBHSS Qazi Sultan Kunri campus will remain closed on 12 October for regional observances and teacher curriculum symposium.",
+    department: "Office of the Principal",
+    priority: "important",
+    isDemo: false,
+    author: "Principal Sir Rahmatullah Lashari",
+    readTime: "2 min read",
+    content: [
+      "The campus of Government Boys Qazi Sultan Higher Secondary School, Kunri will remain closed on Monday, 12 October on account of scheduled regional public holiday and faculty development symposium.",
+      "Regular classes and laboratory practicals will resume according to the normal timetable on Tuesday, 13 October. Students should use this interval to review coursework for upcoming assessments.",
+    ],
+  },
+  {
+    id: "ann-poster-2",
+    title: "Annual Sports Day",
+    category: "event",
+    date: "2026-10-08",
+    summary:
+      "Inter-house athletic heats, track events, and cricket championships will take place on the main sports grounds.",
+    department: "Physical Education & Athletics",
+    priority: "important",
+    isDemo: false,
+    author: "Master Ghulam Rasool Kumbhar, PET",
+    readTime: "2 min read",
+    content: [
+      "The Annual Sports Day will feature sprint dashes, long jump, football finals, and cricket matches between school houses.",
+      "All students from Class VIII through Class XII are encouraged to participate. Medals and distinction certificates will be awarded by the Principal.",
+    ],
+  },
+  {
+    id: "ann-poster-3",
+    title: "Science Exhibition Registration",
+    category: "academic",
+    date: "2026-10-05",
+    summary:
+      "Scholars can submit project proposals for working models in Physics, Robotics, and Environmental Sciences.",
+    department: "Science Faculty Desk",
+    priority: "normal",
+    isDemo: false,
+    author: "Science Department Faculty",
+    readTime: "2 min read",
+    content: [
+      "Registration is officially open for the District Science Exhibition. Working models demonstrating renewable energy, solar system models, and microcontrollers are eligible.",
+      "Submit team rosters and project abstracts at the Science Lab counter before the October 25 deadline.",
+    ],
+  },
+  {
+    id: "ann-poster-4",
+    title: "Mid Term Exam Schedule",
+    category: "academic",
+    date: "2026-10-01",
+    summary:
+      "BISE curriculum mid-term assessment timetable and room seating allocations have been published.",
+    department: "Examination Directorate",
+    priority: "urgent",
+    isDemo: false,
+    author: "Examination Directorate",
+    readTime: "2 min read",
+    content: [
+      "The official date sheet for the Fall Mid-Term Examinations is now released. Examinations commence promptly at 8:30 AM in designated examination halls.",
+      "Candidates must bring their authorized student ID cards and standard writing materials. Electronic devices other than non-programmable calculators are strictly prohibited.",
+    ],
+  },
+  {
+    id: "ann-poster-5",
+    title: "Parent Teacher Meeting",
+    category: "notice",
+    date: "2026-09-28",
+    summary:
+      "Guardians are invited to campus to review student progress indicators, attendance logs, and teacher evaluations.",
+    department: "Administration Office",
+    priority: "normal",
+    isDemo: false,
+    author: "Dean of Academic Affairs",
+    readTime: "2 min read",
+    content: [
+      "The Parent Teacher Meeting (PTM) for Term 1 will take place in the central campus assembly hall from 8:30 AM to 1:00 PM.",
+      "Subject teachers will be available for individual consultations regarding student academic performance, attendance, and board preparation recommendations.",
+    ],
+  },
   {
     id: "ann-1",
     title: "Admissions Open for Academic Year 2026–2027",
@@ -11,7 +97,7 @@ export const schoolNews: Announcement[] = [
     department: "Admissions & Records Office",
     priority: "urgent",
     isDemo: false,
-    author: "Admissions Committee, GQSHSS Kunri",
+    author: "Admissions Committee, GBHSS Qazi Sultan Kunri",
     readTime: "3 min read",
     content: [
       "Government Qazi Sultan Higher Secondary School, Kunri formally announces that admissions for the 2026–2027 academic session are now officially open across all Secondary (Class IX & X) and Higher Secondary (Class XI & XII Pre-Engineering & Pre-Medical) faculties.",
@@ -29,7 +115,7 @@ export const schoolNews: Announcement[] = [
     category: "event",
     date: "2026-11-12",
     summary:
-      "GQSHSS Kunri varsity squad will host guest school teams from across Umerkot District on the main campus athletic grounds.",
+      "GBHSS Qazi Sultan Kunri varsity squad will host guest school teams from across Umerkot District on the main campus athletic grounds.",
     department: "Physical Education & Athletics",
     priority: "important",
     isDemo: false,

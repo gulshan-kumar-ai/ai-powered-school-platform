@@ -20,7 +20,7 @@ const heroSlides = [
   {
     id: "main-building",
     src: "/images/school/main-building.jpg",
-    alt: "Main Academic Building & Allama Iqbal Monument, GQSHSS Kunri",
+    alt: "Main Academic Building & Allama Iqbal Monument, GBHSS Qazi Sultan Kunri",
     title: "Historic Academic Complex & Monument",
     subtitle: "Bab-e-Ibraheem Momin Corridor • Kunri, Sindh",
     tag: "Campus Heritage",
@@ -40,6 +40,14 @@ const heroSlides = [
     title: "Academic Laureates & Board Distinctions",
     subtitle: "BISE Mirpur Khas Session 2025–2026",
     tag: "Merit Recognition",
+  },
+  {
+    id: "principal-lashari",
+    src: "/images/school/principal-rahmatullah-lashari.jpg",
+    alt: "Sir Rahmatullah Lashari, Principal of Govt. Boys Qazi Sultan Higher Secondary School, Kunri",
+    title: "Sir Rahmatullah Lashari • Principal of School",
+    subtitle: "Executive Leadership & Character Formation • Kunri, Sindh",
+    tag: "Principal's Desk",
   },
 ];
 
@@ -96,7 +104,7 @@ export function HeroSection() {
             {/* Narrative description */}
             <p className="text-base sm:text-lg text-slate-300 leading-relaxed max-w-2xl mx-auto lg:mx-0 font-normal">
               Established in {siteConfig.established} on Station Road, Kunri,{" "}
-              <strong className="text-white font-semibold">GQSHSS</strong> blends rigorous Sindh Board
+              <strong className="text-white font-semibold">GBHSS Qazi Sultan Kunri</strong> blends rigorous Sindh Board
               curriculum delivery, state-of-the-art science laboratories, and high ethical ideals to educate the region&apos;s next generation of leaders.
             </p>
 

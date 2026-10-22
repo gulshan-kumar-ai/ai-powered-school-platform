@@ -3,12 +3,13 @@ import { FacultyMember } from "@/types";
 export const schoolFaculty: FacultyMember[] = [
   {
     id: "principal",
-    name: "Mr. Rehmatullah Lashari",
+    name: "Sir Rahmatullah Lashari",
     role: "Principal & Institutional Head",
     department: "Executive Leadership & Administration",
     qualification: "M.Sc., M.Ed., Sindh Education & Literacy Department",
-    bio: "As Institutional Head of Government Qazi Sultan Higher Secondary School, Kunri, Mr. Lashari leads academic governance, BISE Mirpur Khas board examination standards, and community development partnerships with distinction.",
+    bio: "As Institutional Head and Principal of Government Boys Qazi Sultan Higher Secondary School, Kunri, Sir Rahmatullah Lashari leads academic governance, BISE Mirpur Khas board examination standards, faculty development, and community welfare partnerships with distinction.",
     email: "principal@qazisultanboys.edu.pk",
+    image: "/images/school/principal-rahmatullah-lashari.jpg",
   },
   {
     id: "smc-chairman",

@@ -117,6 +117,55 @@ export default function TeacherDashboardPage() {
           </Card>
         </div>
 
+        {/* Poster Pillar 3: My Classes Strip */}
+        <div className="space-y-3">
+          <div className="flex items-center justify-between">
+            <h3 className="text-sm font-extrabold text-[#0f2744] flex items-center gap-2">
+              <BookOpen className="w-4 h-4 text-[#0284c7]" />
+              <span>My Classes (Poster Pillar 3)</span>
+            </h3>
+            <span className="text-xs text-slate-400">Total: 90 Enrolled Scholars</span>
+          </div>
+
+          <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
+            <div className="p-4 rounded-xl border border-sky-200 bg-sky-50/50 flex items-center justify-between">
+              <div className="space-y-0.5">
+                <span className="text-[10px] font-bold uppercase tracking-wider text-sky-700">Class Cohort</span>
+                <h4 className="text-base font-black text-slate-900">Grade 8</h4>
+                <p className="text-xs text-slate-500">General Science &amp; Pre-Algebra</p>
+              </div>
+              <div className="text-right">
+                <span className="text-xl font-black text-sky-700">32</span>
+                <span className="text-[11px] text-slate-500 block">Students</span>
+              </div>
+            </div>
+
+            <div className="p-4 rounded-xl border border-teal-200 bg-teal-50/50 flex items-center justify-between">
+              <div className="space-y-0.5">
+                <span className="text-[10px] font-bold uppercase tracking-wider text-teal-700">Class Cohort</span>
+                <h4 className="text-base font-black text-slate-900">Grade 9</h4>
+                <p className="text-xs text-slate-500">Sindh Board Physics &amp; Math</p>
+              </div>
+              <div className="text-right">
+                <span className="text-xl font-black text-teal-700">28</span>
+                <span className="text-[11px] text-slate-500 block">Students</span>
+              </div>
+            </div>
+
+            <div className="p-4 rounded-xl border border-indigo-200 bg-indigo-50/50 flex items-center justify-between">
+              <div className="space-y-0.5">
+                <span className="text-[10px] font-bold uppercase tracking-wider text-indigo-700">Class Cohort</span>
+                <h4 className="text-base font-black text-slate-900">Grade 10</h4>
+                <p className="text-xs text-slate-500">Senior Preparatory &amp; Lab Sciences</p>
+              </div>
+              <div className="text-right">
+                <span className="text-xl font-black text-indigo-700">30</span>
+                <span className="text-[11px] text-slate-500 block">Students</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
         {/* Schedule & Quick Roll Call */}
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
           {/* Assigned Classes */}
@@ -225,6 +274,39 @@ export default function TeacherDashboardPage() {
                   </span>
                   <ArrowRight className="w-3.5 h-3.5 text-slate-400" />
                 </Link>
+              </CardContent>
+            </Card>
+
+            {/* Poster Pillar 3: Recent Activities */}
+            <Card className="bg-white border-slate-200">
+              <CardHeader className="pb-3 border-b border-slate-100 flex flex-row items-center justify-between">
+                <CardTitle className="text-sm text-[#0f2744]">
+                  Recent Activities
+                </CardTitle>
+                <span className="text-[10px] font-bold text-sky-600 bg-sky-50 px-2 py-0.5 rounded-md">Live Stream</span>
+              </CardHeader>
+              <CardContent className="p-4 space-y-2.5 text-xs">
+                <div className="p-2.5 rounded-lg bg-slate-50 border border-slate-100 flex items-center justify-between">
+                  <div>
+                    <div className="font-bold text-slate-800">Math Quiz - Grade 9</div>
+                    <div className="text-[11px] text-slate-500">28 submissions recorded</div>
+                  </div>
+                  <Badge variant="accent" size="sm">Today</Badge>
+                </div>
+                <div className="p-2.5 rounded-lg bg-slate-50 border border-slate-100 flex items-center justify-between">
+                  <div>
+                    <div className="font-bold text-slate-800">Assignment Submitted - Grade 8</div>
+                    <div className="text-[11px] text-slate-500">Pre-Algebra problem set</div>
+                  </div>
+                  <Badge variant="navy" size="sm">Today</Badge>
+                </div>
+                <div className="p-2.5 rounded-lg bg-slate-50 border border-slate-100 flex items-center justify-between">
+                  <div>
+                    <div className="font-bold text-slate-800">Attendance Updated - Grade 10</div>
+                    <div className="text-[11px] text-slate-500">96.8% presence rate logged</div>
+                  </div>
+                  <Badge variant="secondary" size="sm">Yesterday</Badge>
+                </div>
               </CardContent>
             </Card>
 

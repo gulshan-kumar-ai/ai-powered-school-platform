@@ -1,11 +1,21 @@
 "use client";
 
-import React, { useState } from "react";
+import React, { useState, useEffect, useCallback } from "react";
 import Image from "next/image";
+import Link from "next/link";
 import { Container } from "../layout/Container";
 import { Button } from "../ui/Button";
 import { Badge } from "../ui/Badge";
-import { ArrowRight, Camera, Maximize2 } from "lucide-react";
+import {
+  ArrowRight,
+  Camera,
+  Maximize2,
+  ChevronLeft,
+  ChevronRight,
+  X,
+  ExternalLink,
+} from "lucide-react";
+import { cn } from "@/lib/utils";
 
 interface CampusPhoto {
   id: string;
@@ -61,7 +71,76 @@ const campusPhotos: CampusPhoto[] = [
 ];
 
 export function CampusGalleryPreview() {
-  const [selectedPhoto, setSelectedPhoto] = useState<CampusPhoto | null>(null);
+  const [selectedPhotoIndex, setSelectedPhotoIndex] = useState<number | null>(null);
+  const [touchStart, setTouchStart] = useState<number | null>(null);
+  const [touchEnd, setTouchEnd] = useState<number | null>(null);
+
+  const openLightbox = (index: number) => {
+    setSelectedPhotoIndex(index);
+  };
+
+  const closeLightbox = useCallback(() => {
+    setSelectedPhotoIndex(null);
+  }, []);
+
+  const goToPrevious = useCallback(() => {
+    if (selectedPhotoIndex === null) return;
+    setSelectedPhotoIndex((prev) =>
+      prev! > 0 ? prev! - 1 : campusPhotos.length - 1
+    );
+  }, [selectedPhotoIndex]);
+
+  const goToNext = useCallback(() => {
+    if (selectedPhotoIndex === null) return;
+    setSelectedPhotoIndex((prev) =>
+      prev! < campusPhotos.length - 1 ? prev! + 1 : 0
+    );
+  }, [selectedPhotoIndex]);
+
+  // Keyboard navigation (ArrowLeft, ArrowRight, Escape)
+  useEffect(() => {
+    if (selectedPhotoIndex === null) return;
+
+    const handleKeyDown = (e: KeyboardEvent) => {
+      if (e.key === "Escape") closeLightbox();
+      if (e.key === "ArrowLeft") goToPrevious();
+      if (e.key === "ArrowRight") goToNext();
+    };
+
+    window.addEventListener("keydown", handleKeyDown);
+    document.body.style.overflow = "hidden";
+
+    return () => {
+      window.removeEventListener("keydown", handleKeyDown);
+      document.body.style.overflow = "auto";
+    };
+  }, [selectedPhotoIndex, closeLightbox, goToPrevious, goToNext]);
+
+  // Touch swipe handling for mobile
+  const minSwipeDistance = 45;
+
+  const handleTouchStart = (e: React.TouchEvent) => {
+    setTouchEnd(null);
+    setTouchStart(e.targetTouches[0].clientX);
+  };
+
+  const handleTouchMove = (e: React.TouchEvent) => {
+    setTouchEnd(e.targetTouches[0].clientX);
+  };
+
+  const handleTouchEnd = () => {
+    if (!touchStart || !touchEnd) return;
+    const distance = touchStart - touchEnd;
+    const isLeftSwipe = distance > minSwipeDistance;
+    const isRightSwipe = distance < -minSwipeDistance;
+    if (isLeftSwipe) {
+      goToNext();
+    } else if (isRightSwipe) {
+      goToPrevious();
+    }
+  };
+
+  const activePhoto = selectedPhotoIndex !== null ? campusPhotos[selectedPhotoIndex] : null;
 
   return (
     <section className="py-20 sm:py-28 bg-white relative overflow-hidden">
@@ -82,7 +161,7 @@ export function CampusGalleryPreview() {
               Campus Architecture &amp; Scholarly Grounds
             </h2>
             <p className="mt-2 text-sm sm:text-base text-slate-600 max-w-2xl leading-relaxed">
-              Explore authentic glimpses into daily life at Government Qazi Sultan Higher Secondary School — from historic tiled arches to science laboratories and sports lawns.
+              Explore authentic glimpses into daily life at Government Qazi Sultan Higher Secondary School — from historic tiled arches to science laboratories and sports lawns. Click any photograph to open the full interactive viewer.
             </p>
           </div>
 
@@ -94,17 +173,17 @@ export function CampusGalleryPreview() {
               rightIcon={<ArrowRight className="w-4 h-4" />}
               className="border-slate-300 hover:border-sky-500"
             >
-              Full Visual Archive (11 Photos)
+              Full Visual Archive (12 Photos)
             </Button>
           </div>
         </div>
 
         {/* 6-Photo Masonry / Mosaic Grid */}
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-          {campusPhotos.map((photo) => (
+          {campusPhotos.map((photo, index) => (
             <div
               key={photo.id}
-              onClick={() => setSelectedPhoto(photo)}
+              onClick={() => openLightbox(index)}
               className="group relative rounded-2xl overflow-hidden border border-slate-200 shadow-sm hover:shadow-xl transition-all duration-500 cursor-pointer aspect-[16/11] bg-slate-900"
             >
               <Image
@@ -143,42 +222,171 @@ export function CampusGalleryPreview() {
           ))}
         </div>
 
-        {/* Modal Lightbox */}
-        {selectedPhoto && (
+        {/* Modal Lightbox with Left / Right Navigation */}
+        {selectedPhotoIndex !== null && activePhoto && (
           <div
-            className="fixed inset-0 z-50 bg-black/90 backdrop-blur-md flex items-center justify-center p-4"
-            onClick={() => setSelectedPhoto(null)}
+            role="dialog"
+            aria-modal="true"
+            aria-label={activePhoto.title}
+            className="fixed inset-0 z-50 bg-black/95 backdrop-blur-md flex items-center justify-center p-2 sm:p-4 md:p-6 animate-in fade-in duration-200 select-none"
+            onClick={closeLightbox}
           >
             <div
-              className="relative max-w-4xl w-full bg-slate-900 rounded-3xl overflow-hidden border border-slate-700 shadow-2xl"
+              className="relative max-w-5xl w-full bg-slate-900 rounded-2xl sm:rounded-3xl overflow-hidden border border-slate-700/80 shadow-2xl flex flex-col justify-between max-h-[95vh]"
               onClick={(e) => e.stopPropagation()}
             >
-              <div className="relative h-[480px] w-full">
-                <Image
-                  src={selectedPhoto.src}
-                  alt={selectedPhoto.title}
-                  fill
-                  className="object-contain"
-                  priority
-                />
-              </div>
-
-              <div className="p-6 bg-slate-950 text-white flex items-center justify-between border-t border-slate-800">
-                <div>
-                  <span className="text-xs font-bold uppercase tracking-wider text-sky-400">
-                    {selectedPhoto.category}
+              {/* Top Toolbar */}
+              <div className="p-3 sm:p-4 bg-slate-950/90 border-b border-slate-800 flex items-center justify-between gap-3 text-white z-10">
+                <div className="flex items-center gap-2 sm:gap-3">
+                  <span className="px-2.5 py-1 rounded-lg bg-sky-500/20 text-sky-300 text-xs font-bold uppercase tracking-wider border border-sky-400/30">
+                    {activePhoto.category}
                   </span>
-                  <h3 className="text-xl font-bold mt-0.5">{selectedPhoto.title}</h3>
-                  <p className="text-sm text-slate-300 mt-1">{selectedPhoto.description}</p>
+                  <span className="text-xs text-slate-400 font-mono">
+                    Photo {selectedPhotoIndex + 1} of {campusPhotos.length}
+                  </span>
                 </div>
 
+                {/* Keyboard & swipe hint (desktop/tablet) */}
+                <div className="hidden sm:flex items-center gap-2 text-xs text-slate-400 bg-slate-900/80 px-3 py-1 rounded-full border border-slate-800">
+                  <span>Use</span>
+                  <kbd className="px-1.5 py-0.5 rounded bg-slate-800 text-slate-200 font-mono text-[11px] border border-slate-700">←</kbd>
+                  <kbd className="px-1.5 py-0.5 rounded bg-slate-800 text-slate-200 font-mono text-[11px] border border-slate-700">→</kbd>
+                  <span>keys or swipe</span>
+                </div>
+
+                <div className="flex items-center gap-2">
+                  <a
+                    href={activePhoto.src}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="p-2 rounded-xl text-slate-400 hover:text-white hover:bg-slate-800 transition-colors"
+                    aria-label="View original image file"
+                    title="View original image file"
+                  >
+                    <ExternalLink className="w-4 h-4" />
+                  </a>
+                  <button
+                    type="button"
+                    onClick={closeLightbox}
+                    className="p-2 rounded-xl text-slate-400 hover:text-white hover:bg-rose-500/20 hover:text-rose-300 transition-colors cursor-pointer"
+                    aria-label="Close photo viewer"
+                    title="Close (Esc)"
+                  >
+                    <X className="w-5 h-5" />
+                  </button>
+                </div>
+              </div>
+
+              {/* Center Image Stage with Floating Left & Right Navigation Arrows */}
+              <div
+                className="relative flex-1 min-h-[280px] sm:min-h-[420px] md:min-h-[480px] max-h-[58vh] flex items-center justify-center p-2 sm:p-4 bg-slate-950 overflow-hidden"
+                onTouchStart={handleTouchStart}
+                onTouchMove={handleTouchMove}
+                onTouchEnd={handleTouchEnd}
+              >
+                {/* Previous Button (Left Arrow) */}
                 <button
                   type="button"
-                  onClick={() => setSelectedPhoto(null)}
-                  className="px-4 py-2 rounded-xl bg-slate-800 hover:bg-slate-700 text-white text-xs font-bold transition cursor-pointer"
+                  onClick={goToPrevious}
+                  className="absolute left-2 sm:left-4 z-20 w-11 h-11 sm:w-13 sm:h-13 rounded-full bg-slate-900/80 hover:bg-sky-600 active:scale-95 text-white border border-slate-700/80 shadow-xl backdrop-blur-md flex items-center justify-center transition-all cursor-pointer focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-sky-400 group"
+                  aria-label="Previous photograph"
+                  title="Previous photo (Left Arrow key)"
                 >
-                  Close Viewer
+                  <ChevronLeft className="w-6 h-6 sm:w-7 sm:h-7 group-hover:-translate-x-0.5 transition-transform" />
                 </button>
+
+                {/* High-Resolution Main Photo */}
+                <div className="relative w-full h-full flex items-center justify-center">
+                  <Image
+                    src={activePhoto.src}
+                    alt={activePhoto.title}
+                    fill
+                    className="object-contain"
+                    priority
+                  />
+                </div>
+
+                {/* Next Button (Right Arrow) */}
+                <button
+                  type="button"
+                  onClick={goToNext}
+                  className="absolute right-2 sm:right-4 z-20 w-11 h-11 sm:w-13 sm:h-13 rounded-full bg-slate-900/80 hover:bg-sky-600 active:scale-95 text-white border border-slate-700/80 shadow-xl backdrop-blur-md flex items-center justify-center transition-all cursor-pointer focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-sky-400 group"
+                  aria-label="Next photograph"
+                  title="Next photo (Right Arrow key)"
+                >
+                  <ChevronRight className="w-6 h-6 sm:w-7 sm:h-7 group-hover:translate-x-0.5 transition-transform" />
+                </button>
+              </div>
+
+              {/* Interactive Thumbnail Carousel Strip */}
+              <div className="px-3 sm:px-4 py-2.5 bg-slate-950/95 border-t border-slate-800/80 flex items-center justify-center gap-2 sm:gap-3 overflow-x-auto">
+                {campusPhotos.map((photo, idx) => (
+                  <button
+                    key={photo.id}
+                    type="button"
+                    onClick={() => setSelectedPhotoIndex(idx)}
+                    className={cn(
+                      "relative w-12 h-9 sm:w-16 sm:h-11 rounded-lg overflow-hidden shrink-0 transition-all border cursor-pointer",
+                      idx === selectedPhotoIndex
+                        ? "ring-2 ring-sky-400 border-sky-400 scale-105 opacity-100 shadow-lg"
+                        : "border-slate-800 opacity-40 hover:opacity-85 hover:border-slate-600"
+                    )}
+                    aria-label={`Jump to ${photo.title}`}
+                    title={photo.title}
+                  >
+                    <Image
+                      src={photo.src}
+                      alt={photo.title}
+                      fill
+                      className="object-cover"
+                    />
+                  </button>
+                ))}
+              </div>
+
+              {/* Bottom Caption and Actions Bar */}
+              <div className="p-4 sm:p-5 bg-slate-950 text-white flex flex-col sm:flex-row sm:items-center justify-between gap-4 border-t border-slate-800">
+                <div className="space-y-1">
+                  <h3 className="text-base sm:text-lg font-bold text-white tracking-tight">
+                    {activePhoto.title}
+                  </h3>
+                  <p className="text-xs sm:text-sm text-slate-300 max-w-2xl leading-relaxed">
+                    {activePhoto.description}
+                  </p>
+                </div>
+
+                <div className="flex items-center gap-2 shrink-0">
+                  <div className="flex items-center gap-1 sm:hidden">
+                    <button
+                      type="button"
+                      onClick={goToPrevious}
+                      className="px-3 py-1.5 rounded-lg bg-slate-800 text-white text-xs font-semibold hover:bg-slate-700 transition"
+                    >
+                      ← Prev
+                    </button>
+                    <button
+                      type="button"
+                      onClick={goToNext}
+                      className="px-3 py-1.5 rounded-lg bg-slate-800 text-white text-xs font-semibold hover:bg-slate-700 transition"
+                    >
+                      Next →
+                    </button>
+                  </div>
+                  <Link
+                    href="/gallery"
+                    className="px-3.5 py-2 rounded-xl bg-sky-600 hover:bg-sky-500 text-white text-xs font-bold transition flex items-center gap-1.5 shadow-sm"
+                  >
+                    <span>Full Archive</span>
+                    <ArrowRight className="w-3.5 h-3.5" />
+                  </Link>
+                  <button
+                    type="button"
+                    onClick={closeLightbox}
+                    className="px-3.5 py-2 rounded-xl bg-slate-800 hover:bg-slate-700 text-white text-xs font-bold transition cursor-pointer"
+                  >
+                    Close
+                  </button>
+                </div>
               </div>
             </div>
           </div>
@@ -187,3 +395,4 @@ export function CampusGalleryPreview() {
     </section>
   );
 }
+

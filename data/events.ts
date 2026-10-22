@@ -32,7 +32,7 @@ export const schoolEvents: EventItem[] = [
     time: "2:30 PM – 5:30 PM PKT",
     venue: "Main Campus Athletic Lawn & Football Grounds",
     summary:
-      "The GQSHSS Kunri varsity football team hosts neighboring Umerkot District school squads in the annual regional tournament final.",
+      "The GBHSS Qazi Sultan Kunri varsity football team hosts neighboring Umerkot District school squads in the annual regional tournament final.",
     description:
       "Football is a beloved pillar of student life at Government Qazi Sultan Higher Secondary School. The school coordinates this competitive tournament welcoming guest squads from across Kunri Taluka and Mirpur Khas Division. The tournament fosters athletic sportsmanship, camaraderie, physical fitness, and civic teamwork.",
     speaker: "Master Ghulam Rasool Kumbhar (Physical Education Teacher & Coach)",
@@ -41,7 +41,7 @@ export const schoolEvents: EventItem[] = [
     isDemo: false,
     agenda: [
       { time: "2:30 PM", title: "Team Lineup & Official Referee Briefing" },
-      { time: "3:00 PM", title: "First Half Kick-off: GQSHSS Kunri vs Umerkot Combined" },
+      { time: "3:00 PM", title: "First Half Kick-off: GBHSS Qazi Sultan Kunri vs Umerkot Combined" },
       { time: "3:50 PM", title: "Halftime Break & Parade Drill Exhibition" },
       { time: "4:15 PM", title: "Second Half Decider & Penalty Shootout (if tied)" },
       { time: "5:00 PM", title: "Trophy Presentation & Best Player Accolades" },
@@ -57,7 +57,7 @@ export const schoolEvents: EventItem[] = [
     summary:
       "Prestigious recognition ceremony honoring Session 2025–2026 academic position holders, board laureates, and dedicated teaching faculty.",
     description:
-      "An enduring institutional tradition at GQSHSS Kunri, the annual prize distribution honors exceptional student diligence and scholarship. Trophies, medals, and merit certificates are conferred upon the 1st, 2nd, and 3rd rank position holders across secondary and higher secondary grades, as well as outstanding science practical scholars and sports laureates.",
+      "An enduring institutional tradition at GBHSS Qazi Sultan Kunri, the annual prize distribution honors exceptional student diligence and scholarship. Trophies, medals, and merit certificates are conferred upon the 1st, 2nd, and 3rd rank position holders across secondary and higher secondary grades, as well as outstanding science practical scholars and sports laureates.",
     speaker: "Mr. Rehmatullah Lashari (Principal) & Haji Ubaidullah Gill (SMC)",
     audience: "Position Holders, Enrolled Families, Teachers & SMC Members",
     isPast: false,

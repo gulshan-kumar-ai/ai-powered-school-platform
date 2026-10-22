@@ -26,7 +26,7 @@ export const metadata: Metadata = {
   keywords: [
     siteConfig.name,
     "Government Qazi Sultan Higher Secondary School Kunri",
-    "GQSHSS Kunri",
+    "GBHSS Qazi Sultan Kunri",
     "Qazi Sultan Boys HSS Kunri",
     "Station Road Kunri",
     "Umerkot District Sindh",

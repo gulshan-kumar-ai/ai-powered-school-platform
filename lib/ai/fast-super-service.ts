@@ -76,6 +76,48 @@ export const PUBLIC_SCHOOL_KNOWLEDGE: PublicFact[] = [
     answer:
       "Govt. Boys Qazi Sultan Higher Secondary School, Kunri offers over 32 student-run clubs, competitive sports tournaments (Cricket, Football, Athletics), quiz societies, and community self-reliance initiatives through the School Management Committee.",
   },
+  {
+    keywords: ["demo", "/demo", "competition demo", "walkthrough", "juror", "presentation mode"],
+    title: "Competition Demo Console",
+    url: "/demo",
+    answer:
+      "You can launch our interactive 8-step Competition Demo Console at /demo. It features live verifiable proofs for public outreach, faculty authoring, server-side grading, anti-cheat gamification, Socratic AI assistant, CyberSafe lab, diagnostic analytics, and custodial parent data isolation with built-in presentation timing cues.",
+  },
+  {
+    keywords: ["principal", "lashari", "rahmatullah", "headmaster", "institutional head", "leadership"],
+    title: "Principal's Desk & Leadership",
+    url: "/about#principals-message",
+    answer:
+      "Sir Rahmatullah Lashari is the Principal and Institutional Head of Government Boys Qazi Sultan Higher Secondary School, Kunri (Sindh Education & Literacy Department). Under his executive leadership, the institution delivers academic rigor, BISE Mirpur Khas board examination standards, and community development partnerships alongside the School Management Committee (SMC). You can reach his office at principal@qazisultanboys.edu.pk or phone +92 238 558252.",
+  },
+  {
+    keywords: ["teacher", "teachers", "faculty", "prof", "staff", "who teaches", "instructor", "lecturer", "specialist"],
+    title: "Faculty & Academic Specialists",
+    url: "/about#faculty",
+    answer:
+      "Govt. Boys Qazi Sultan Higher Secondary School, Kunri is staffed by highly qualified subject specialists: Sir Rahmatullah Lashari (Principal & Institutional Head), Prof. Muhammad Tariq Memon (Senior Subject Specialist - Physics, M.Sc.), Prof. Abdul Samad Soomro (Senior Subject Specialist - Chemistry, M.Sc.), Prof. Ghulam Mustafa Nohri (Senior Subject Specialist - Mathematics, M.Sc.), Prof. Sikandar Ali Khaskheli (Senior Lecturer in Biology, M.Sc.), Master Ghulam Rasool Kumbhar (Physical Education Director & Football Coach), and Haji Ubaidullah Gill (SMC Leadership & Community Patron).",
+  },
+  {
+    keywords: ["photo", "photos", "gallery", "picture", "pictures", "image", "architecture", "monument", "gate", "building"],
+    title: "Campus Photography & Visual Archive",
+    url: "/gallery",
+    answer:
+      "Explore 12 authentic high-resolution photographs in our Campus Visual Archive at /gallery: the central academic block with Sindh glazed blue-tile arches, Allama Iqbal open-book monument, Bab-e-Ibraheem Momin gate, grand morning assembly parade grounds, annual merit position holders ceremony, solar system science studio mural, and shaded neem study verandas.",
+  },
+  {
+    keywords: ["facility", "facilities", "lab", "laboratory", "laboratories", "library", "quadrangle", "ground", "campus"],
+    title: "Campus Facilities & Laboratories",
+    url: "/about#campus-facilities",
+    answer:
+      "Our campus on Station Road features specialized physics, chemistry, and biology laboratories, a dedicated computer science room, library and reference collection, the iconic central courtyard with Allama Iqbal monument, shaded verandas, and sports grounds for cricket and football.",
+  },
+  {
+    keywords: ["board", "bise", "mirpur khas", "affiliation", "exam", "matric", "intermediate", "secondary"],
+    title: "BISE Mirpur Khas Affiliation & Examinations",
+    url: "/academics",
+    answer:
+      "The school is officially affiliated with the Board of Intermediate and Secondary Education (BISE) Mirpur Khas. We offer secondary education (SSC Matriculation, Classes IX & X) and higher secondary education (HSSC Intermediate, Classes XI & XII) with regular annual merit positions achieved by our students.",
+  },
 ];
 
 export interface FastSuperConfig {
@@ -217,11 +259,22 @@ export function retrieveSchoolKnowledgeContext(query: string): {
     qLower.includes("phone") ||
     qLower.includes("email") ||
     qLower.includes("address") ||
-    qLower.includes("principal")
+    qLower.includes("principal") ||
+    qLower.includes("lashari") ||
+    qLower.includes("headmaster") ||
+    qLower.includes("leadership")
   ) {
     contextSnippets.push(
       `[Campus Contact & Schedule]: School: ${siteConfig.name}; Address: ${siteConfig.contact.addressLine1}, ${siteConfig.contact.cityStateZip}; Phone: ${siteConfig.contact.mainPhone}; Email: ${siteConfig.contact.mainEmail}; Principal: ${siteConfig.contact.principal}; Office Hours: ${siteConfig.contact.officeHours}; Campus Tours: ${siteConfig.contact.campusTourHours}.`
     );
+    if (qLower.includes("principal") || qLower.includes("lashari") || qLower.includes("headmaster") || qLower.includes("leadership")) {
+      contextSnippets.push(
+        `[Principal & Leadership Profile]: Sir Rahmatullah Lashari is the Principal and Institutional Head of Government Boys Qazi Sultan Higher Secondary School, Kunri (Sindh Education & Literacy Department). He leads academic standards, BISE Mirpur Khas board examinations, and community partnerships alongside the School Management Committee (SMC). Contact: principal@qazisultanboys.edu.pk.`
+      );
+      if (!citations.some((c) => c.url === "/about#principals-message")) {
+        citations.push({ title: "Principal's Desk & Leadership", url: "/about#principals-message" });
+      }
+    }
     if (!citations.some((c) => c.url === "/contact")) {
       citations.push({ title: "School Contact & Office Hours", url: "/contact" });
     }
@@ -737,10 +790,183 @@ function generateLocalVerifiedResponse(
     q.includes("good afternoon") ||
     q.includes("good evening")
   ) {
-    return `Hello! Welcome to ${siteConfig.name}. How can I assist you today? I can help with admissions deadlines, AP curriculum, office hours, campus visits, or general school inquiries.`;
+    return `Hello! Welcome to ${siteConfig.name}. How can I assist you today? I can help you learn about Principal Sir Rahmatullah Lashari, our teachers and faculty specialists, admissions guidelines, BISE Mirpur Khas academic streams, office hours, campus gallery, or exploring our Competition Demo Console (/demo).`;
   }
 
-  // 2. General Knowledge & Scientific Explanations
+  // 2. Interactive Demo Mode Queries
+  if (
+    q === "/demo" ||
+    q === "demo" ||
+    q.includes("demo mode") ||
+    q.includes("competition demo") ||
+    q.includes("presentation demo")
+  ) {
+    return `You can explore our interactive Competition Demo Console at /demo. It features an 8-step live architectural demonstration (Public Outreach, Faculty Studio, Server-Side Grading, Anti-Cheat Gamification, Socratic AI Tutor, CyberSafe Threat Inspection, Diagnostic Analytics, and Custodial Parent Data Isolation) with built-in presentation timing cues.`;
+  }
+
+  // 2b. Poster AI Learning Query: Photosynthesis
+  if (
+    q.includes("photosynthesis") ||
+    q.includes("photo synthesis") ||
+    q.includes("how plants make food")
+  ) {
+    return `Of course! **Photosynthesis** is the process by which green plants make their own food. 
+
+Plants use **chlorophyll** in their leaves to absorb energy from **sunlight**, then combine **carbon dioxide (CO₂)** from the air and **water (H₂O)** from the soil. This produces **glucose** (sugar for food and energy) and releases clean **oxygen (O₂)** into the atmosphere!
+
+**Word Equation:**
+Carbon Dioxide + Water + Sunlight ➔ Glucose + Oxygen
+
+Scholars can also practice this concept in our **Interactive Science Quiz** in the Student Portal!`;
+  }
+
+  // 3. Principal & Executive Leadership
+  if (
+    q.includes("principal") ||
+    q.includes("lashari") ||
+    q.includes("headmaster") ||
+    q.includes("rahmatullah")
+  ) {
+    return `Sir Rahmatullah Lashari is the Principal and Institutional Head of Government Boys Qazi Sultan Higher Secondary School, Kunri (Sindh Education & Literacy Department). Under his executive leadership, the institution delivers academic governance, BISE Mirpur Khas board examination standards, and community development partnerships alongside the School Management Committee (SMC). You can contact his office at ${siteConfig.contact.mainPhone} or via email at principal@qazisultanboys.edu.pk.`;
+  }
+
+  // 4. Faculty & Teachers
+  if (
+    q.includes("teacher") ||
+    q.includes("faculty") ||
+    q.includes("prof") ||
+    q.includes("staff") ||
+    q.includes("who teaches") ||
+    q.includes("instructor") ||
+    q.includes("lecturer") ||
+    q.includes("specialist")
+  ) {
+    return `Our academic faculty at Govt. Boys Qazi Sultan Higher Secondary School, Kunri is led by Principal Sir Rahmatullah Lashari. Senior subject specialists include:
+
+• **Sir Rahmatullah Lashari** – Principal & Institutional Head (M.Sc., M.Ed.)
+• **Prof. Muhammad Tariq Memon** – Senior Subject Specialist in Physics (M.Sc., B.Ed.)
+• **Prof. Abdul Samad Soomro** – Senior Subject Specialist in Chemistry (M.Sc. Analytical Chemistry)
+• **Prof. Ghulam Mustafa Nohri** – Senior Subject Specialist in Mathematics (M.Sc. Applied Mathematics)
+• **Prof. Sikandar Ali Khaskheli** – Senior Lecturer in Biology (M.Sc. Zoology)
+• **Master Ghulam Rasool Kumbhar** – Director of Physical Education (PET) & Football Coach
+• **Haji Ubaidullah Gill** – School Management Committee (SMC) Leadership & Community Patron
+
+For academic consultations or department inquiries, visit the Administration Office on campus or email ${siteConfig.contact.mainEmail}.`;
+  }
+
+  // 5. Admissions & Enrollment
+  if (
+    q.includes("admiss") ||
+    q.includes("apply") ||
+    q.includes("enroll") ||
+    q.includes("registration") ||
+    q.includes("deadline") ||
+    q.includes("admission process")
+  ) {
+    return `Admissions for the upcoming academic year at Govt. Boys Qazi Sultan Higher Secondary School, Kunri follow our official 5-stage evaluation:
+
+1. **Inquiry & Form Submission**: Submit the enrollment application form in person at the Admissions Desk or online.
+2. **Academic Verification**: Submission of previous school leaving certificates, B-Form/birth certificate, and prior academic marksheets.
+3. **Student Interview**: Diagnostic interview assessing foundational literacy, numeracy, and character.
+4. **Records Review**: Verification of BISE Mirpur Khas board registration eligibility.
+5. **Formal Admission Offer**: Issuance of official student roll number and academic timetable.
+
+As a premier public institution under the Sindh Education & Literacy Department, education is accessible and merit-focused. For inquiries, visit the admissions office during morning hours (${siteConfig.contact.officeHours}) or email admissions@qazisultanboys.edu.pk.`;
+  }
+
+  // 6. Campus Photography & Visual Archive
+  if (
+    q.includes("photo") ||
+    q.includes("gallery") ||
+    q.includes("picture") ||
+    q.includes("image") ||
+    q.includes("architecture") ||
+    q.includes("campus look") ||
+    q.includes("monument") ||
+    q.includes("gate")
+  ) {
+    return `You can explore our interactive Visual Archive at /gallery featuring 12 authentic high-resolution photographs of our Station Road campus:
+
+• **Central Academic Complex**: Sindh glazed blue-tile mosaic arched portico and Allama Iqbal open-book monument ("Zindagi Shama Ki Soorat Ho Khudaya Meri").
+• **Bab-e-Ibraheem Momin Gate**: Imposing fortified main entrance welcoming scholars on Station Road.
+• **Grand Morning Assembly**: Hundreds of scholars in disciplined formation for the national anthem on parade grounds.
+• **Solar System Science Studio**: Room 4 celestial wall mural and inquiry counters.
+• **Annual Merit Laureates**: Trophy ceremonies honoring BISE Mirpur Khas board position holders.
+• **Veranda Arcades & Sports Grounds**: Shaded walkways, neem trees, and cricket/football grounds.
+
+Visit our Gallery page (/gallery) where you can open photos in high resolution and navigate left/right!`;
+  }
+
+  // 7. Academic Programs & Curriculum
+  if (
+    q.includes("academic") ||
+    q.includes("curriculum") ||
+    q.includes("subject") ||
+    q.includes("stream") ||
+    q.includes("course") ||
+    q.includes("matric") ||
+    q.includes("intermediate") ||
+    q.includes("pre-medical") ||
+    q.includes("pre-engineering")
+  ) {
+    return `Govt. Boys Qazi Sultan Higher Secondary School, Kunri offers comprehensive secondary and higher secondary education affiliated with BISE Mirpur Khas:
+
+• **Secondary School Certificate (SSC Matriculation, Classes IX & X)**: Science Group (Physics, Chemistry, Biology/Computer Science, Mathematics, Sindhi/Urdu, English, Islamiat, Pakistan Studies).
+• **Higher Secondary Certificate (HSSC Intermediate, Classes XI & XII)**:
+  - **Pre-Medical**: Physics, Chemistry, Biology, English, Urdu/Sindhi, Pakistan Studies, Islamic Studies.
+  - **Pre-Engineering**: Physics, Chemistry, Mathematics, English, Urdu/Sindhi, Pakistan Studies.
+  - **Computer Science & General Science**: Mathematics, Physics, Computer Science.
+  - **Humanities**: Social sciences, languages, civics, and Islamic history.
+
+Our graduates consistently achieve competitive merit rankings in Mirpur Khas Division board examinations.`;
+  }
+
+  // 8. Office Hours, Contact & Location
+  if (
+    q.includes("hour") ||
+    q.includes("timing") ||
+    q.includes("time") ||
+    q.includes("open") ||
+    q.includes("close") ||
+    q.includes("address") ||
+    q.includes("location") ||
+    q.includes("phone") ||
+    q.includes("contact") ||
+    q.includes("email") ||
+    q.includes("where")
+  ) {
+    return `Official Contact & Schedule for Govt. Boys Qazi Sultan Higher Secondary School, Kunri:
+
+• **Address**: Station Road Corridor, Bab-e-Ibraheem Momin Campus, Kunri, Sindh, Pakistan
+• **Telephone**: ${siteConfig.contact.mainPhone}
+• **Email**: ${siteConfig.contact.mainEmail} (Admissions: admissions@qazisultanboys.edu.pk | Principal: principal@qazisultanboys.edu.pk)
+• **Administrative Office Hours**: ${siteConfig.contact.officeHours}
+• **Campus Discovery Visits**: ${siteConfig.contact.campusTourHours} (Tuesdays & Thursdays by appointment)
+• **Affiliation**: School Education & Literacy Department, Government of Sindh & BISE Mirpur Khas.`;
+  }
+
+  // 9. Facilities & Sports
+  if (
+    q.includes("facilit") ||
+    q.includes("lab") ||
+    q.includes("library") ||
+    q.includes("computer") ||
+    q.includes("ground") ||
+    q.includes("sport") ||
+    q.includes("football") ||
+    q.includes("cricket")
+  ) {
+    return `Our campus facilities on Station Road include:
+
+• **Science Laboratories**: Specialized physics apparatus, chemistry titration counters, and biology dissection museum.
+• **Computer & Technology Studio**: Practical IT workstations for secondary computer science scholars.
+• **Central Quadrangle & Iqbal Monument**: Open-air assembly grounds with the iconic Allama Iqbal open-book monument.
+• **Sports Lawns & Athletic Field**: Dedicated cricket pitch and football field hosting our annual inter-school tournament coached by Master Ghulam Rasool Kumbhar.
+• **Campus Library**: Reference books, past examination papers, syllabus textbooks, and quiet study alcoves.
+• **Bab-e-Ibraheem Momin Gatehouse & Verandas**: Fortified historic entrance and shaded arcades providing natural cooling.`;
+  }
+
+  // 10. General Knowledge & Scientific Explanations
   if (q.includes("photosynthesis") || q.includes("chlorophyll")) {
     return "Photosynthesis is the fundamental biological process by which green plants, algae, and certain cyanobacteria convert sunlight, water, and carbon dioxide into oxygen and glucose (energy-rich sugars) using chlorophyll pigments located inside plant chloroplasts.";
   }
@@ -749,11 +975,17 @@ function generateLocalVerifiedResponse(
     return "Newton's laws of motion are three fundamental classical mechanics principles: (1) An object remains at rest or in uniform motion unless acted on by an external net force; (2) Force equals mass times acceleration (F = ma); and (3) For every action, there is an equal and opposite reaction.";
   }
 
-  // 3. Known school context available
+  // 11. Known school context available (clean up raw bracket markers)
   if (hasRelevantFacts && contextText) {
-    return `Based on our verified school records:\n\n${contextText}\n\nIf you need further details or personalized assistance, feel free to ask a follow-up question or contact the school office at ${siteConfig.contact.mainEmail}.`;
+    const cleanedText = contextText
+      .split("\n\n")
+      .map((item) => item.replace(/^\[[^\]]+\]:\s*/, "").trim())
+      .filter(Boolean)
+      .join("\n\n");
+
+    return `${cleanedText}\n\nIf you need further details or personalized assistance, feel free to ask a follow-up question or contact the school office at ${siteConfig.contact.mainEmail}.`;
   }
 
-  // 4. Unverified school question
+  // 12. Unverified school question
   return `I do not have verified records on that specific topic in our public school handbook. For official assistance, please contact the School Admissions & Office desk directly at ${siteConfig.contact.mainPhone} or email ${siteConfig.contact.mainEmail} during regular office hours (${siteConfig.contact.officeHours}).`;
 }

@@ -13,12 +13,12 @@ export interface GalleryItem {
 }
 
 export const galleryCategories = [
-  { id: "all", label: "All Photographs", count: 11 },
+  { id: "all", label: "All Photographs", count: 12 },
   { id: "architecture", label: "Campus Architecture", count: 3 },
   { id: "academics", label: "Academic Inquiry", count: 1 },
   { id: "achievements", label: "Honors & Awards", count: 2 },
   { id: "campus-life", label: "Student Traditions", count: 2 },
-  { id: "heritage", label: "Insignia & Memorials", count: 3 },
+  { id: "heritage", label: "Insignia & Leadership", count: 4 },
 ] as const;
 
 export const schoolGallery: GalleryItem[] = [
@@ -60,6 +60,19 @@ export const schoolGallery: GalleryItem[] = [
     date: "Session 2025–2026 Annual Awards",
     featured: true,
     dimensions: { width: 1200, height: 900 },
+  },
+  {
+    id: "principal-rahmatullah-lashari",
+    title: "Sir Rahmatullah Lashari — Principal of School",
+    category: "heritage",
+    categoryLabel: "Insignia & Leadership",
+    image: "/images/school/principal-rahmatullah-lashari.jpg",
+    caption:
+      "Portrait of Sir Rahmatullah Lashari, Principal of Government Boys Qazi Sultan Higher Secondary School, Kunri, Sindh, pictured in traditional attire before the historic blue-and-white tiled arches of the central academic block.",
+    location: "Main Building Arched Portico, GBHSS Qazi Sultan Kunri",
+    date: "Institutional Leadership",
+    featured: true,
+    dimensions: { width: 960, height: 960 },
   },
   {
     id: "classroom-space-mural",

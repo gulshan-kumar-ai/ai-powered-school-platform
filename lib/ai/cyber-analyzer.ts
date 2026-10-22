@@ -98,7 +98,7 @@ const CYBER_DETECTION_RULES: RulePattern[] = [
     type: "too_good_to_be_true",
     label: "Unsolicited Prize, Grant, or Scholarship Offer",
     pattern:
-      /(you have won|congratulations! you are selected|free macbook|unclaimed scholarship funds|100% full grant guaranteed|instant cash reward)/i,
+      /(you have won|congratulations! you are selected|free macbook|free laptop|unclaimed scholarship funds|100% full grant guaranteed|instant cash reward)/i,
     severity: "medium",
     baseScore: 22,
     explanation:
@@ -120,18 +120,25 @@ export const SYNTHETIC_CYBER_EXAMPLES = [
       "FINAL NOTICE: Your student portal credentials have expired. You must immediately verify your login and enter your password at http://school-verify.xyz/login within 1 hour or your academic files and exam submissions will be permanently deleted. Act now!",
   },
   {
-    id: "sample-scholarship-lure",
-    title: "Unsolicited International Scholarship (Medium Risk)",
-    sender: "Global Merit Foundation <awards@internationalscholarship-fund.click>",
+    id: "sample-free-laptop-poster",
+    title: "Free Laptop Prize Scam (Poster Example)",
+    sender: "Prize Rewards Desk <claim@freelaptop.tk>",
     content:
-      "Congratulations! You have won an unclaimed $15,000 Global STEM Fellowship. Claim your cash reward immediately by replying with your Social Security number and purchasing a $50 administrative processing gift card.",
+      "You have won a free laptop! Click this link to claim your prize: http://freelaptop.tk",
   },
   {
     id: "sample-legit-announcement",
     title: "Legitimate School Library Announcement (Low Concern)",
     sender: "School Library Services <library@qazisultanboys.edu.pk>",
     content:
-      "Hello Scholars, Please be reminded that the digital library has updated its catalog with new AP Physics and Calculus study materials. You may review these resources by visiting your student dashboard at your convenience. Have a great term!",
+      "Hello Scholars, Please be reminded that the digital library has updated its catalog with new study materials and syllabus guides. You may review these resources by visiting your student dashboard at your convenience. Have a great term!",
+  },
+  {
+    id: "sample-scholarship-lure",
+    title: "Unsolicited International Scholarship (Medium Risk)",
+    sender: "Global Merit Foundation <awards@internationalscholarship-fund.click>",
+    content:
+      "Congratulations! You have won an unclaimed $15,000 Global STEM Fellowship. Claim your cash reward immediately by replying with your Social Security number and purchasing a $50 administrative processing gift card.",
   },
 ];
 

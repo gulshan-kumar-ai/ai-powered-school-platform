@@ -8,11 +8,11 @@ import { admissionSteps, admissionDates } from "@/data/admissions";
 
 export const siteConfig: SiteConfig = {
   name: "Govt. Boys Qazi Sultan Higher Secondary School, Kunri",
-  shortName: "GQSHSS Kunri",
-  acronym: "GQSHSS",
+  shortName: "GBHSS Qazi Sultan Kunri",
+  acronym: "GBHSS",
   tagline: "Striving for Excellence, Inspiring Character, Empowering Future Generations",
   description:
-    "Govt. Boys Qazi Sultan Higher Secondary School, Kunri (GQSHSS) is a prominent public boys' educational institution located on Station Road, Kunri, within the Umerkot District of Sindh, Pakistan (Mirpur Khas Region), offering comprehensive education from primary to higher secondary levels (Class XI & XII).",
+    "Govt. Boys Qazi Sultan Higher Secondary School, Kunri (GBHSS Qazi Sultan Kunri) is a prominent public boys' educational institution located on Station Road, Kunri, within the Umerkot District of Sindh, Pakistan (Mirpur Khas Region), offering comprehensive education from primary to higher secondary levels (Class XI & XII).",
   established: 1988,
   motto: "وَأَن لَّيْسَ لِلْإِنسَانِ إِلَّا مَا سَعَىٰ (And that man can have nothing but what he strives for)",
   logo: "/images/school/logo.png",
@@ -66,7 +66,7 @@ export const siteConfig: SiteConfig = {
     admissionsPhone: "+92 238 558252",
     mainEmail: "info@qazisultanboys.edu.pk",
     admissionsEmail: "admissions@qazisultanboys.edu.pk",
-    principal: "Mr. Rehmatullah Lashari",
+    principal: "Sir Rahmatullah Lashari",
     smcChairman: "Mr. Ubaidullah Gill (2019–20)",
     affiliation: "Board of Intermediate and Secondary Education (BISE) Mirpur Khas",
     governingBody: "School Education & Literacy Department, Government of Sindh",

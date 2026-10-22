@@ -1,5 +1,7 @@
 import { HeroSection } from "@/components/sections/HeroSection";
+import { HeroQuickAccess } from "@/components/sections/HeroQuickAccess";
 import { IntroSection } from "@/components/sections/IntroSection";
+import { PrincipalSpotlightSection } from "@/components/sections/PrincipalSpotlightSection";
 import { ProgramsSection } from "@/components/sections/ProgramsSection";
 import { AnnouncementsSection } from "@/components/sections/AnnouncementsSection";
 import { EventsSection } from "@/components/sections/EventsSection";
@@ -14,8 +16,14 @@ export default function HomePage() {
       {/* 1. Cinematic Hero Section */}
       <HeroSection />
 
+      {/* 1.5 Poster Shortcuts & Multiple User Access Strip */}
+      <HeroQuickAccess />
+
       {/* 2. School Heritage & Character Pillars */}
       <IntroSection />
+
+      {/* 2.5 Principal's Welcome & Leadership Spotlight */}
+      <PrincipalSpotlightSection />
 
       {/* 3. Academic Programs & Board Preparation */}
       <ProgramsSection />

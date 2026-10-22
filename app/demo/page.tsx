@@ -29,6 +29,7 @@ import { schoolStore } from "@/lib/data/school-store";
 import { analyzeSuspiciousMessage, SYNTHETIC_CYBER_EXAMPLES } from "@/lib/ai/cyber-analyzer";
 import { generateStudyAssistantResponse } from "@/lib/ai/study-assistant";
 import { SEED_CREDENTIALS } from "@/lib/auth/session";
+import { siteConfig } from "@/config/site";
 
 interface StoryStep {
   id: number;
@@ -49,19 +50,20 @@ interface StoryStep {
 const STORY_STEPS: StoryStep[] = [
   {
     id: 1,
-    title: "1. Public School Outreach & Curriculum Exploration",
-    subtitle: "A prospective family discovers the institution",
+    title: "1. Public School Outreach, AI Campus Guide & Curriculum Exploration",
+    subtitle: "A prospective family discovers the institution & asks the AI Campus Guide",
     timeTarget: "0:00 - 0:30",
     role: "Visitor",
     roleColor: "bg-sky-500/10 text-sky-400 border-sky-500/30",
     icon: Compass,
     overview:
-      "A visitor navigates the responsive Govt. Boys Qazi Sultan Higher Secondary School, Kunri public portal, discovering academic programs, admissions deadlines, announcements, faculty credentials, and digital campus resources.",
+      "A visitor navigates the responsive Govt. Boys Qazi Sultan Higher Secondary School, Kunri public portal, discovering academic programs, admissions deadlines, announcements, Principal Sir Rahmatullah Lashari's leadership, and the grounded AI Campus Guide.",
     script:
       "\"Welcome to the Govt. Boys Qazi Sultan Higher Secondary School, Kunri platform. We begin from the perspective of an external visitor. The public website delivers a modern, accessible interface with real-time school announcements, comprehensive curriculum pathways, an interactive admissions guide, and institutional event schedules. Built on Next.js 16 App Router with zero hydration mismatch and optimized responsive layouts, the public shell establishes institutional credibility within seconds.\"",
     keyPoints: [
       "Dynamic campus announcements and term calendars",
-      "Full curriculum catalog with course syllabi outlines",
+      "Fast & Super AI Campus Guide chatbot grounded in official school records",
+      "Full BISE Mirpur Khas curriculum catalog with course syllabi outlines",
       "High-contrast, accessible typography with mobile-first responsiveness",
       "Direct entry points to role-guarded academic portals",
     ],
@@ -69,6 +71,7 @@ const STORY_STEPS: StoryStep[] = [
     technicalPillars: [
       "Next.js 16 App Router SSR/SSG",
       "Tailwind CSS v4 Modern Theme Tokens",
+      "Fast & Super AI Streaming (/api/chat)",
       "WCAG 2.1 AA Color Contrast & Semantic Hierarchy",
     ],
   },
@@ -81,9 +84,9 @@ const STORY_STEPS: StoryStep[] = [
     roleColor: "bg-emerald-500/10 text-emerald-400 border-emerald-500/30",
     icon: BookOpen,
     overview:
-      "Dr. Robert Chen (Science Dept) logs into the teacher portal, publishes a new AP Physics Kinematics guide to the digital library, and drafts a 3-question interactive assessment.",
+      "Faculty Instructor Dr. Marcus Chen (Science Specialization) logs into the teacher portal, publishes a new Higher Secondary Physics Kinematics guide to the digital library, and drafts a 3-question interactive assessment.",
     script:
-      "\"Next, we step into the shoes of Dr. Robert Chen, an AP Physics teacher. Within his dedicated faculty workspace, he publishes a foundational kinematics study guide to the digital library and generates an interactive, auto-graded quiz. The teacher workspace enforces strict role authorization, ensuring faculty members can only assign courseware and view grade rosters for classes to which they are officially assigned.\"",
+      "\"Next, we step into the shoes of faculty instructor Dr. Marcus Chen, a Higher Secondary Physics teacher. Within his dedicated faculty workspace, he publishes a foundational kinematics study guide to the digital library and generates an interactive, auto-graded quiz. The teacher workspace enforces strict role authorization, ensuring faculty members can only assign courseware and view grade rosters for classes to which they are officially assigned.\"",
     keyPoints: [
       "Role-governed faculty workspace with scoped class schedules",
       "Publishing workflow distinguishing live resources from private drafts",
@@ -94,7 +97,7 @@ const STORY_STEPS: StoryStep[] = [
     credentials: {
       email: SEED_CREDENTIALS.teacher.email,
       pass: SEED_CREDENTIALS.teacher.password,
-      roleName: "Faculty Instructor (Dr. Robert Chen)",
+      roleName: "Faculty Instructor (Dr. Marcus Chen)",
     },
     technicalPillars: [
       "Role-Based Access Control (RBAC)",
@@ -244,7 +247,7 @@ const STORY_STEPS: StoryStep[] = [
     credentials: {
       email: SEED_CREDENTIALS.teacher.email,
       pass: SEED_CREDENTIALS.teacher.password,
-      roleName: "Faculty Instructor (Dr. Robert Chen)",
+      roleName: "Faculty Instructor (Dr. Marcus Chen)",
     },
     technicalPillars: [
       "Cohort Statistical Aggregation Pipeline",
@@ -263,7 +266,7 @@ const STORY_STEPS: StoryStep[] = [
     overview:
       "Guardian Eleanor Vance logs in to inspect Alex's academic progress. Strict custodial boundary checks verify that unrelated student records are completely blocked and inaccessible.",
     script:
-      "\"We conclude with parent Eleanor Vance. Logging into the custodial portal, Eleanor views real-time attendance, assignment due dates, and verified quiz grades exclusively for her son Alex. Most importantly from a compliance standpoint: if a user attempts to query an unauthorized student ID, the system strictly returns an empty result set and denies access, fully satisfying FERPA and GDPR pupil privacy standards.\"",
+      "\"We conclude with parent Eleanor Vance. Logging into the custodial portal, Eleanor views real-time attendance, assignment due dates, and verified quiz grades exclusively for her son Alex. Most importantly from a compliance standpoint: if a user attempts to query an unauthorized student ID, the system strictly returns an empty result set and denies access, fully satisfying pupil privacy, GDPR, and institutional data protection standards.\"",
     keyPoints: [
       "Single-pane guardian view of attendance, grades, and teacher feedback",
       "Exclusive custodial association — guardians can only access verified wards",
@@ -278,7 +281,7 @@ const STORY_STEPS: StoryStep[] = [
     },
     technicalPillars: [
       "Custodial Relationship Enforcement",
-      "FERPA / GDPR Data Privacy Scoping",
+      "GDPR / Educational Pupil Privacy Scoping",
       "Anti-Leakage Defensive API Layer",
     ],
   },
@@ -349,7 +352,7 @@ export default function CompetitionDemoPage() {
 
     try {
       if (activeStep.id === 1) {
-        // Step 1: Query announcements & curriculum
+        // Step 1: Query announcements, curriculum & AI chatbot
         const announcements = schoolStore.getAnnouncements();
         const classes = schoolStore.getClasses();
         const subjects = schoolStore.getSubjects();
@@ -357,10 +360,13 @@ export default function CompetitionDemoPage() {
           status: "SUCCESS",
           type: "PUBLIC_EXPLORATION",
           data: {
+            institution: siteConfig.name,
+            principal: siteConfig.contact.principal,
             activeAnnouncementsCount: announcements.length,
             featuredNotice: announcements[0]?.title || "Campus Welcome",
             academicCohortCount: classes.length,
             accreditedSubjectsCount: subjects.length,
+            fastSuperCampusGuideAI: "Active (/api/chat - Grounded in School Records)",
             renderingMode: "Next.js 16 Server-Side Streamed with Static Pre-rendering",
           },
         });
@@ -368,10 +374,10 @@ export default function CompetitionDemoPage() {
         // Step 2: Publish resource & quiz
         const teacher = schoolStore.getTeachers()[0];
         const res = schoolStore.createLearningResource({
-          title: "AP Physics C: Derivation of Rotational Inertia",
-          description: "Rigorous step-by-step calculus derivations for cylindrical manifolds.",
+          title: "Higher Secondary Physics: Derivation of Rotational Dynamics",
+          description: "Step-by-step mathematical derivation of rotational inertia for Class XI–XII Science scholars.",
           resourceType: "document",
-          url: "/docs/rotational-inertia-derivation.pdf",
+          url: "/docs/rotational-dynamics-derivation.pdf",
           fileSize: "2.4 MB",
           subjectId: "c0000000-0000-0000-0000-000000000001",
           sectionIds: ["s0000000-0000-0000-0000-000000000001"],
@@ -454,7 +460,7 @@ export default function CompetitionDemoPage() {
         const response = await generateStudyAssistantResponse({
           message: "Can you help me understand how angular momentum is conserved when an ice skater pulls their arms in?",
           subjectId: "c0000000-0000-0000-0000-000000000001",
-          subjectName: "AP Physics C: Mechanics",
+          subjectName: "Higher Secondary Physics: Mechanics",
           className: "Grade 10",
         });
         setSimOutput({
@@ -805,13 +811,29 @@ export default function CompetitionDemoPage() {
               {simOutput && (
                 <div className="mt-4 bg-slate-950 border border-slate-800 rounded-xl p-3.5 font-mono text-[11px] text-slate-300">
                   <div className="flex items-center justify-between text-slate-500 border-b border-slate-800 pb-1.5 mb-2">
-                    <span className="text-emerald-400 font-semibold">
-                      [EXECUTION COMPLETE — 0 ERRORS]
+                    <span
+                      className={`font-semibold ${
+                        simOutput.status === "SUCCESS"
+                          ? "text-emerald-400"
+                          : "text-rose-400"
+                      }`}
+                    >
+                      {simOutput.status === "SUCCESS"
+                        ? "[EXECUTION COMPLETE — 0 ERRORS]"
+                        : "[EXECUTION FAILED — ERROR]"}
                     </span>
-                    <span>{simOutput.type}</span>
+                    <span>{simOutput.type || "SIMULATION"}</span>
                   </div>
-                  <pre className="overflow-x-auto text-[11px] text-emerald-300 whitespace-pre-wrap leading-relaxed">
-                    {JSON.stringify(simOutput.data, null, 2)}
+                  <pre
+                    className={`overflow-x-auto text-[11px] whitespace-pre-wrap leading-relaxed ${
+                      simOutput.status === "SUCCESS"
+                        ? "text-emerald-300"
+                        : "text-rose-300"
+                    }`}
+                  >
+                    {simOutput.status === "SUCCESS"
+                      ? JSON.stringify(simOutput.data, null, 2)
+                      : simOutput.message}
                   </pre>
                 </div>
               )}

@@ -349,6 +349,128 @@ export default function AboutPage() {
         </Container>
       </section>
 
+      {/* 3.8 Principal's Desk: Executive Address */}
+      <section id="principals-message" className="py-16 sm:py-24 bg-white border-b border-slate-200/80 relative overflow-hidden">
+        <div className="absolute top-0 right-0 w-96 h-96 bg-sky-50 rounded-full blur-3xl opacity-60 pointer-events-none" />
+        <Container>
+          <div className="rounded-3xl border border-sky-100 bg-gradient-to-br from-white via-sky-50/20 to-white p-6 sm:p-10 lg:p-12 shadow-md relative overflow-hidden">
+            <div className="absolute top-0 left-0 w-2.5 h-full bg-gradient-to-b from-[#0f2744] via-[#0284c7] to-teal-500" />
+            
+            <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 items-center">
+              {/* Principal Photo Showcase */}
+              <div className="lg:col-span-5 flex flex-col items-center">
+                <div className="relative group">
+                  <div className="absolute -inset-2.5 rounded-3xl bg-gradient-to-tr from-sky-500/25 via-teal-500/20 to-amber-400/25 blur-lg group-hover:blur-xl transition-all" />
+                  
+                  <div className="relative w-64 h-72 sm:w-80 sm:h-96 rounded-2xl overflow-hidden border-4 border-white shadow-2xl bg-slate-950">
+                    <Image
+                      src="/images/school/principal-rahmatullah-lashari.jpg"
+                      alt="Sir Rahmatullah Lashari, Principal of Govt. Boys Qazi Sultan Higher Secondary School, Kunri"
+                      fill
+                      priority
+                      className="object-cover object-top transition-transform duration-700 ease-out group-hover:scale-105"
+                      sizes="(max-width: 640px) 256px, 320px"
+                    />
+
+                    {/* Badge Overlay */}
+                    <div className="absolute top-3 left-3 bg-slate-950/85 backdrop-blur-md px-3 py-1 rounded-full border border-sky-400/40 shadow-md">
+                      <span className="text-[11px] font-black text-amber-300 tracking-wider uppercase">
+                        Principal of School
+                      </span>
+                    </div>
+
+                    <div className="absolute bottom-0 inset-x-0 bg-gradient-to-t from-slate-950 via-slate-950/60 to-transparent p-4 text-white">
+                      <div className="text-base sm:text-lg font-black tracking-wide">
+                        Sir Rahmatullah Lashari
+                      </div>
+                      <div className="text-xs text-sky-200">
+                        Principal &amp; Institutional Head
+                      </div>
+                      <div className="text-[10px] text-slate-300 mt-0.5">
+                        Govt. Boys Qazi Sultan Higher Secondary School, Kunri
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <div className="mt-4 text-center space-y-1">
+                  <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-slate-100 text-[#0f2744] text-xs font-semibold border border-slate-200">
+                    <ShieldCheck className="w-3.5 h-3.5 text-teal-600" />
+                    <span>Sindh Education &amp; Literacy Department</span>
+                  </div>
+                  <div className="text-[11px] text-slate-500">
+                    M.Sc., M.Ed. • Executive Institutional Governance
+                  </div>
+                </div>
+              </div>
+
+              {/* Principal's Official Address */}
+              <div className="lg:col-span-7 space-y-5">
+                <div className="flex flex-wrap items-center gap-2">
+                  <Badge variant="accent" size="sm">
+                    Principal&apos;s Desk
+                  </Badge>
+                  <span className="text-xs text-slate-500 font-medium">
+                    Official Executive Address
+                  </span>
+                </div>
+
+                <h2 className="text-2xl sm:text-3xl lg:text-4xl font-extrabold text-[#0f2744] tracking-tight leading-tight">
+                  &ldquo;Nurturing Striving Scholars, Serving Our Community with Honor&rdquo;
+                </h2>
+
+                {/* Quranic Anchor */}
+                <div className="p-3.5 rounded-xl bg-sky-50/80 border border-sky-200/80 flex flex-col sm:flex-row sm:items-center justify-between gap-2">
+                  <span className="text-base sm:text-lg font-arabic font-bold text-[#0f2744]" dir="rtl">
+                    وَأَن لَّيْسَ لِلْإِنسَانِ إِلَّا مَا سَعَىٰ
+                  </span>
+                  <span className="text-xs text-slate-600 italic">
+                    &ldquo;And that man can have nothing but what he strives for&rdquo; (Surah An-Najm 53:39)
+                  </span>
+                </div>
+
+                <div className="space-y-3.5 text-slate-600 text-sm sm:text-base leading-relaxed">
+                  <p>
+                    Assalamu Alaikum and warm greetings to our students, parents, esteemed faculty, and respected community elders. As Principal of <strong>Government Boys Qazi Sultan Higher Secondary School, Kunri</strong>, it is my profound honor to guide an institution steeped in character, scholastic discipline, and public service.
+                  </p>
+                  <p>
+                    Our mission is rooted in the belief that education is the ultimate catalyst for human elevation. We do not merely prepare students for examinations; we cultivate inquiring minds, moral uprightness, and civic responsibility. In our classrooms and practical science laboratories, our dedicated faculty prepare scholars for BISE Mirpur Khas board excellence across Pre-Medical, Pre-Engineering, and General Science disciplines.
+                  </p>
+                  <p>
+                    Through the enduring collaboration of the School Management Committee (SMC), patron leaders like Haji Ubaidullah Gill, and our supportive local community, we continue to enhance our academic environment on a proud self-help foundation. Whether in academic laureates, athletic camaraderie, or digital innovation, our boys are prepared to serve Sindh and Pakistan with distinction.
+                  </p>
+                </div>
+
+                {/* Signature Block */}
+                <div className="pt-4 border-t border-slate-200/80 flex flex-col sm:flex-row sm:items-center justify-between gap-4">
+                  <div>
+                    <div className="text-lg font-extrabold text-[#0f2744]">
+                      Sir Rahmatullah Lashari
+                    </div>
+                    <div className="text-xs font-medium text-slate-600">
+                      Principal of School • GBHSS Qazi Sultan Kunri
+                    </div>
+                    <div className="text-[11px] text-sky-700 font-mono mt-0.5">
+                      principal@qazisultanboys.edu.pk
+                    </div>
+                  </div>
+
+                  <div className="flex items-center gap-2">
+                    <Button href="/contact" variant="primary" size="sm">
+                      Contact Principal&apos;s Office
+                    </Button>
+                    <Button href="/academics" variant="outline" size="sm">
+                      Explore Programs
+                    </Button>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+          </div>
+        </Container>
+      </section>
+
       {/* 4. Leadership & Faculty */}
       <section className="py-16 sm:py-24 bg-slate-50/50 border-b border-slate-200/80">
         <Container>
@@ -366,7 +488,7 @@ export default function AboutPage() {
                 Institutional Leadership &amp; Senior Faculty
               </h2>
               <p className="mt-2 text-slate-600 text-sm sm:text-base max-w-2xl">
-                Led by Principal Mr. Rehmatullah Lashari and the School Management Committee (SMC), our dedicated educators foster academic rigor, scientific inquiry, and civic integrity in Kunri, Sindh.
+                Led by Principal Sir Rahmatullah Lashari and the School Management Committee (SMC), our dedicated educators foster academic rigor, scientific inquiry, and civic integrity in Kunri, Sindh.
               </p>
             </div>
 
@@ -377,15 +499,27 @@ export default function AboutPage() {
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
             {siteConfig.faculty.map((member) => (
-              <Card key={member.id} className="border-slate-200/90 bg-white flex flex-col justify-between">
+              <Card key={member.id} className="border-slate-200/90 bg-white flex flex-col justify-between hover:border-sky-300 hover:shadow-md transition-all">
                 <CardHeader className="pb-3">
                   <div className="flex items-center justify-between mb-3">
                     <span className="text-[11px] font-semibold text-[#0284c7] uppercase tracking-wider">
                       {member.department}
                     </span>
-                    <div className="w-8 h-8 rounded-full bg-slate-100 text-[#0f2744] flex items-center justify-center font-bold text-xs">
-                      {member.name.split(" ").map(n => n[0]).join("").slice(0, 2)}
-                    </div>
+                    {member.image ? (
+                      <div className="relative w-11 h-11 rounded-full overflow-hidden border-2 border-sky-500 shadow-xs shrink-0 bg-slate-900">
+                        <Image
+                          src={member.image}
+                          alt={member.name}
+                          fill
+                          sizes="44px"
+                          className="object-cover object-top"
+                        />
+                      </div>
+                    ) : (
+                      <div className="w-9 h-9 rounded-full bg-slate-100 text-[#0f2744] flex items-center justify-center font-bold text-xs shrink-0">
+                        {member.name.split(" ").map(n => n[0]).join("").slice(0, 2)}
+                      </div>
+                    )}
                   </div>
                   <CardTitle className="text-lg text-[#0f2744]">
                     {member.name}

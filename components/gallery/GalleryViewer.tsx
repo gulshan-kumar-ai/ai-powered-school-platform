@@ -22,6 +22,8 @@ export function GalleryViewer() {
   const [activeCategory, setActiveCategory] = useState<string>("all");
   const [selectedPhotoIndex, setSelectedPhotoIndex] = useState<number | null>(null);
   const [copied, setCopied] = useState(false);
+  const [touchStart, setTouchStart] = useState<number | null>(null);
+  const [touchEnd, setTouchEnd] = useState<number | null>(null);
 
   // Filter photos by selected category
   const filteredPhotos = activeCategory === "all"
@@ -50,6 +52,30 @@ export function GalleryViewer() {
       prev! < filteredPhotos.length - 1 ? prev! + 1 : 0
     );
   }, [selectedPhotoIndex, filteredPhotos.length]);
+
+  // Touch swipe handling for mobile
+  const minSwipeDistance = 45;
+
+  const handleTouchStart = (e: React.TouchEvent) => {
+    setTouchEnd(null);
+    setTouchStart(e.targetTouches[0].clientX);
+  };
+
+  const handleTouchMove = (e: React.TouchEvent) => {
+    setTouchEnd(e.targetTouches[0].clientX);
+  };
+
+  const handleTouchEnd = () => {
+    if (!touchStart || !touchEnd) return;
+    const distance = touchStart - touchEnd;
+    const isLeftSwipe = distance > minSwipeDistance;
+    const isRightSwipe = distance < -minSwipeDistance;
+    if (isLeftSwipe) {
+      goToNext();
+    } else if (isRightSwipe) {
+      goToPrevious();
+    }
+  };
 
   // Keyboard navigation for Lightbox
   useEffect(() => {
@@ -204,14 +230,22 @@ export function GalleryViewer() {
             onClick={(e) => e.stopPropagation()}
           >
             {/* Top Toolbar */}
-            <div className="p-4 sm:p-5 border-b border-slate-800 flex items-center justify-between gap-4 text-white z-10 bg-slate-950/80">
-              <div className="flex items-center gap-3">
+            <div className="p-3 sm:p-5 border-b border-slate-800 flex items-center justify-between gap-3 text-white z-10 bg-slate-950/80">
+              <div className="flex items-center gap-2 sm:gap-3">
                 <Badge variant="accent" size="sm">
                   {activePhoto.categoryLabel}
                 </Badge>
                 <span className="text-xs text-slate-400 font-mono">
-                  Photograph {selectedPhotoIndex + 1} of {filteredPhotos.length}
+                  {selectedPhotoIndex + 1} of {filteredPhotos.length}
                 </span>
+              </div>
+
+              {/* Keyboard & swipe hint (desktop/tablet) */}
+              <div className="hidden sm:flex items-center gap-2 text-xs text-slate-400 bg-slate-900/80 px-3 py-1 rounded-full border border-slate-800">
+                <span>Use</span>
+                <kbd className="px-1.5 py-0.5 rounded bg-slate-800 text-slate-200 font-mono text-[11px] border border-slate-700">←</kbd>
+                <kbd className="px-1.5 py-0.5 rounded bg-slate-800 text-slate-200 font-mono text-[11px] border border-slate-700">→</kbd>
+                <span>or swipe</span>
               </div>
 
               <div className="flex items-center gap-2">
@@ -249,16 +283,22 @@ export function GalleryViewer() {
               </div>
             </div>
 
-            {/* Center Image Stage with Left / Right Arrows */}
-            <div className="relative flex-1 min-h-[300px] sm:min-h-[460px] max-h-[62vh] flex items-center justify-center p-2 sm:p-4 bg-slate-950">
+            {/* Center Image Stage with Left / Right Arrows and Touch Swipe */}
+            <div
+              className="relative flex-1 min-h-[300px] sm:min-h-[460px] max-h-[60vh] flex items-center justify-center p-2 sm:p-4 bg-slate-950 overflow-hidden"
+              onTouchStart={handleTouchStart}
+              onTouchMove={handleTouchMove}
+              onTouchEnd={handleTouchEnd}
+            >
               {/* Previous Button */}
               <button
                 type="button"
                 onClick={goToPrevious}
-                className="absolute left-2 sm:left-4 z-20 p-2.5 sm:p-3 rounded-full bg-slate-900/80 hover:bg-sky-600 text-white border border-slate-700/80 shadow-lg backdrop-blur-sm transition-all focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-sky-400"
+                className="absolute left-2 sm:left-4 z-20 w-11 h-11 sm:w-13 sm:h-13 rounded-full bg-slate-900/80 hover:bg-sky-600 active:scale-95 text-white border border-slate-700/80 shadow-lg backdrop-blur-sm flex items-center justify-center transition-all focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-sky-400 group cursor-pointer"
                 aria-label="Previous photograph"
+                title="Previous photo (Left arrow key)"
               >
-                <ChevronLeft className="w-5 h-5 sm:w-6 sm:h-6" />
+                <ChevronLeft className="w-6 h-6 group-hover:-translate-x-0.5 transition-transform" />
               </button>
 
               {/* High-Resolution Image */}
@@ -269,7 +309,7 @@ export function GalleryViewer() {
                   width={activePhoto.dimensions?.width || 1200}
                   height={activePhoto.dimensions?.height || 900}
                   priority
-                  className="max-h-[58vh] w-auto max-w-full object-contain rounded-lg shadow-md"
+                  className="max-h-[56vh] w-auto max-w-full object-contain rounded-lg shadow-md"
                 />
               </div>
 
@@ -277,15 +317,42 @@ export function GalleryViewer() {
               <button
                 type="button"
                 onClick={goToNext}
-                className="absolute right-2 sm:right-4 z-20 p-2.5 sm:p-3 rounded-full bg-slate-900/80 hover:bg-sky-600 text-white border border-slate-700/80 shadow-lg backdrop-blur-sm transition-all focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-sky-400"
+                className="absolute right-2 sm:right-4 z-20 w-11 h-11 sm:w-13 sm:h-13 rounded-full bg-slate-900/80 hover:bg-sky-600 active:scale-95 text-white border border-slate-700/80 shadow-lg backdrop-blur-sm flex items-center justify-center transition-all focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-sky-400 group cursor-pointer"
                 aria-label="Next photograph"
+                title="Next photo (Right arrow key)"
               >
-                <ChevronRight className="w-5 h-5 sm:w-6 sm:h-6" />
+                <ChevronRight className="w-6 h-6 group-hover:translate-x-0.5 transition-transform" />
               </button>
             </div>
 
+            {/* Interactive Thumbnail Strip */}
+            <div className="px-3 sm:px-4 py-2 bg-slate-950/95 border-t border-slate-800/80 flex items-center justify-start sm:justify-center gap-2 overflow-x-auto">
+              {filteredPhotos.map((photo, idx) => (
+                <button
+                  key={photo.id}
+                  type="button"
+                  onClick={() => setSelectedPhotoIndex(idx)}
+                  className={cn(
+                    "relative w-12 h-9 sm:w-14 sm:h-10 rounded-lg overflow-hidden shrink-0 transition-all border cursor-pointer",
+                    idx === selectedPhotoIndex
+                      ? "ring-2 ring-sky-400 border-sky-400 scale-105 opacity-100 shadow-md"
+                      : "border-slate-800 opacity-40 hover:opacity-85 hover:border-slate-600"
+                  )}
+                  aria-label={`Jump to ${photo.title}`}
+                  title={photo.title}
+                >
+                  <Image
+                    src={photo.image}
+                    alt={photo.title}
+                    fill
+                    className="object-cover"
+                  />
+                </button>
+              ))}
+            </div>
+
             {/* Bottom Details Panel */}
-            <div className="p-4 sm:p-6 bg-slate-950 border-t border-slate-800 text-slate-300 space-y-2">
+            <div className="p-4 sm:p-5 bg-slate-950 border-t border-slate-800 text-slate-300 space-y-2">
               <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2">
                 <h2 className="text-base sm:text-lg font-bold text-white tracking-tight">
                   {activePhoto.title}
@@ -300,9 +367,27 @@ export function GalleryViewer() {
                 </div>
               </div>
 
-              <p className="text-xs sm:text-sm text-slate-400 leading-relaxed max-w-4xl">
-                {activePhoto.caption}
-              </p>
+              <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3">
+                <p className="text-xs sm:text-sm text-slate-400 leading-relaxed max-w-4xl">
+                  {activePhoto.caption}
+                </p>
+                <div className="flex items-center gap-2 shrink-0 sm:hidden">
+                  <button
+                    type="button"
+                    onClick={goToPrevious}
+                    className="px-3 py-1.5 rounded-lg bg-slate-800 text-white text-xs font-semibold hover:bg-slate-700 transition"
+                  >
+                    ← Prev
+                  </button>
+                  <button
+                    type="button"
+                    onClick={goToNext}
+                    className="px-3 py-1.5 rounded-lg bg-slate-800 text-white text-xs font-semibold hover:bg-slate-700 transition"
+                  >
+                    Next →
+                  </button>
+                </div>
+              </div>
             </div>
           </div>
         </div>

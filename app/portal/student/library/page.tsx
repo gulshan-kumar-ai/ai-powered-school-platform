@@ -155,24 +155,120 @@ export default function StudentLibraryPage() {
           </button>
         </div>
 
+        {/* Poster Pillar 5: 4 Quick Category Filter Buttons */}
+        <div className="grid grid-cols-2 sm:grid-cols-4 gap-3">
+          <button
+            onClick={() => {
+              setSelectedType("all");
+              setSearchQuery("Textbook");
+            }}
+            className={`p-3.5 rounded-xl border text-left transition-all flex items-center gap-3 ${
+              searchQuery === "Textbook"
+                ? "bg-sky-50 dark:bg-sky-950/60 border-sky-500 text-sky-900 dark:text-sky-200 shadow-xs"
+                : "bg-white dark:bg-slate-900 border-slate-200 dark:border-slate-800 hover:border-sky-400"
+            }`}
+          >
+            <div className="w-9 h-9 rounded-lg bg-blue-100 text-blue-700 flex items-center justify-center shrink-0">
+              <BookOpen className="w-5 h-5" />
+            </div>
+            <div>
+              <div className="text-xs font-bold text-slate-800 dark:text-slate-100">Textbooks</div>
+              <div className="text-[10px] text-slate-400">Sindh Board Curricula</div>
+            </div>
+          </button>
+
+          <button
+            onClick={() => {
+              setSelectedType("pdf");
+              setSearchQuery("Notes");
+            }}
+            className={`p-3.5 rounded-xl border text-left transition-all flex items-center gap-3 ${
+              searchQuery === "Notes"
+                ? "bg-sky-50 dark:bg-sky-950/60 border-sky-500 text-sky-900 dark:text-sky-200 shadow-xs"
+                : "bg-white dark:bg-slate-900 border-slate-200 dark:border-slate-800 hover:border-sky-400"
+            }`}
+          >
+            <div className="w-9 h-9 rounded-lg bg-emerald-100 text-emerald-700 flex items-center justify-center shrink-0">
+              <FileText className="w-5 h-5" />
+            </div>
+            <div>
+              <div className="text-xs font-bold text-slate-800 dark:text-slate-100">Notes</div>
+              <div className="text-[10px] text-slate-400">Class Revision Proofs</div>
+            </div>
+          </button>
+
+          <button
+            onClick={() => {
+              setSelectedType("video");
+              setSearchQuery("");
+            }}
+            className={`p-3.5 rounded-xl border text-left transition-all flex items-center gap-3 ${
+              selectedType === "video"
+                ? "bg-sky-50 dark:bg-sky-950/60 border-sky-500 text-sky-900 dark:text-sky-200 shadow-xs"
+                : "bg-white dark:bg-slate-900 border-slate-200 dark:border-slate-800 hover:border-sky-400"
+            }`}
+          >
+            <div className="w-9 h-9 rounded-lg bg-purple-100 text-purple-700 flex items-center justify-center shrink-0">
+              <Video className="w-5 h-5" />
+            </div>
+            <div>
+              <div className="text-xs font-bold text-slate-800 dark:text-slate-100">Videos</div>
+              <div className="text-[10px] text-slate-400">Visual Demonstrations</div>
+            </div>
+          </button>
+
+          <button
+            onClick={() => {
+              setSelectedType("all");
+              setSearchQuery("Past Papers");
+            }}
+            className={`p-3.5 rounded-xl border text-left transition-all flex items-center gap-3 ${
+              searchQuery === "Past Papers"
+                ? "bg-sky-50 dark:bg-sky-950/60 border-sky-500 text-sky-900 dark:text-sky-200 shadow-xs"
+                : "bg-white dark:bg-slate-900 border-slate-200 dark:border-slate-800 hover:border-sky-400"
+            }`}
+          >
+            <div className="w-9 h-9 rounded-lg bg-amber-100 text-amber-700 flex items-center justify-center shrink-0">
+              <Layers className="w-5 h-5" />
+            </div>
+            <div>
+              <div className="text-xs font-bold text-slate-800 dark:text-slate-100">Past Papers</div>
+              <div className="text-[10px] text-slate-400">BISE Mirpur Khas Exams</div>
+            </div>
+          </button>
+        </div>
+
         {/* Search & Filter Toolbar */}
-        <div className="bg-white p-4 rounded-2xl border border-slate-200 shadow-2xs flex flex-col md:flex-row gap-3">
+        <div className="bg-white dark:bg-slate-900 p-4 rounded-2xl border border-slate-200 dark:border-slate-800 shadow-2xs flex flex-col md:flex-row gap-3">
           <div className="relative flex-1">
             <Search className="w-4 h-4 text-slate-400 absolute left-3.5 top-1/2 -translate-y-1/2" />
             <input
               type="text"
               value={searchQuery}
               onChange={(e) => setSearchQuery(e.target.value)}
-              placeholder="Search by resource title, topic, or subject keyword..."
-              className="w-full pl-9 pr-4 py-2 rounded-xl border border-slate-200 text-xs text-slate-900 focus:outline-none focus:ring-2 focus:ring-sky-500/20"
+              placeholder="Search books, notes, videos..."
+              className="w-full pl-9 pr-4 py-2 rounded-xl border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-950 text-xs text-slate-900 dark:text-slate-100 focus:outline-none focus:ring-2 focus:ring-sky-500/20"
             />
           </div>
 
           <div className="flex items-center gap-2 flex-wrap">
+            {(searchQuery || selectedType !== "all" || selectedSubject !== "all") && (
+              <button
+                onClick={() => {
+                  setSearchQuery("");
+                  setSelectedType("all");
+                  setSelectedSubject("all");
+                }}
+                className="px-3 py-2 rounded-xl bg-slate-100 dark:bg-slate-800 text-xs font-semibold text-slate-600 dark:text-slate-300 hover:bg-slate-200"
+              >
+                Reset Filters
+              </button>
+            )}
+
             <select
               value={selectedSubject}
               onChange={(e) => setSelectedSubject(e.target.value)}
-              className="px-3 py-2 rounded-xl border border-slate-200 text-xs font-semibold text-slate-700 bg-white cursor-pointer"
+              className="px-3 py-2 rounded-xl border border-slate-200 dark:border-slate-800 text-xs font-semibold text-slate-700 dark:text-slate-200 bg-white dark:bg-slate-950 cursor-pointer"
             >
               <option value="all">All Subjects</option>
               {subjects.map((sub) => (
@@ -185,11 +281,11 @@ export default function StudentLibraryPage() {
             <select
               value={selectedType}
               onChange={(e) => setSelectedType(e.target.value)}
-              className="px-3 py-2 rounded-xl border border-slate-200 text-xs font-semibold text-slate-700 bg-white cursor-pointer"
+              className="px-3 py-2 rounded-xl border border-slate-200 dark:border-slate-800 text-xs font-semibold text-slate-700 dark:text-slate-200 bg-white dark:bg-slate-950 cursor-pointer"
             >
               <option value="all">All File Types</option>
               <option value="pdf">PDF Documents</option>
-              <option value="document">Study Guides</option>
+              <option value="document">Study Guides & Textbooks</option>
               <option value="video">Video Lectures</option>
               <option value="link">Web Portals</option>
             </select>

@@ -23,16 +23,17 @@ import {
 export const metadata: Metadata = {
   title: "Contact & Campus Directory | Government Qazi Sultan Higher Secondary School, Kunri",
   description:
-    "Official directory and contact information for Government Qazi Sultan Higher Secondary School, Kunri (Station Road, Umerkot District, Sindh). Reach Principal Mr. Rehmatullah Lashari, SMC leadership, and admissions.",
+    "Official directory and contact information for Government Qazi Sultan Higher Secondary School, Kunri (Station Road, Umerkot District, Sindh). Reach Principal Sir Rahmatullah Lashari, SMC leadership, and admissions.",
 };
 
 const departmentDirectory = [
   {
     name: "Principal & Institutional Head",
-    lead: "Mr. Rehmatullah Lashari, Principal",
+    lead: "Sir Rahmatullah Lashari, Principal",
     phone: "+92 238 558252",
     email: "principal@qazisultanboys.edu.pk",
     hours: "Monday – Saturday: 8:00 AM – 1:30 PM (Friday: 8:00 AM – 12:00 PM)",
+    image: "/images/school/principal-rahmatullah-lashari.jpg",
   },
   {
     name: "School Management Committee (SMC)",
@@ -224,13 +225,28 @@ export default function ContactPage() {
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
             {departmentDirectory.map((dept, idx) => (
-              <Card key={idx} className="bg-white border-slate-200/90 shadow-2xs flex flex-col justify-between">
+              <Card key={idx} className="bg-white border-slate-200/90 shadow-2xs flex flex-col justify-between hover:border-sky-300 hover:shadow-sm transition-all">
                 <CardHeader className="pb-2">
-                  <h3 className="font-bold text-base text-[#0f2744]">
-                    {dept.name}
-                  </h3>
-                  <div className="text-xs text-slate-500 font-medium mt-0.5">
-                    {dept.lead}
+                  <div className="flex items-start justify-between gap-2">
+                    <div>
+                      <h3 className="font-bold text-base text-[#0f2744]">
+                        {dept.name}
+                      </h3>
+                      <div className="text-xs text-slate-500 font-medium mt-0.5">
+                        {dept.lead}
+                      </div>
+                    </div>
+                    {dept.image && (
+                      <div className="relative w-11 h-11 rounded-full overflow-hidden border-2 border-sky-500 shadow-xs shrink-0 bg-slate-900">
+                        <Image
+                          src={dept.image}
+                          alt={dept.lead}
+                          fill
+                          sizes="44px"
+                          className="object-cover object-top"
+                        />
+                      </div>
+                    )}
                   </div>
                 </CardHeader>
                 <CardContent className="pt-2 border-t border-slate-100 space-y-2 text-xs text-slate-600">
