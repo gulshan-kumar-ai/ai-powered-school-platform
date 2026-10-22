@@ -1,4 +1,4 @@
-# Oakridge Collegiate Academy — Competition & Juror Evaluation Dossier
+# Govt. Boys Qazi Sultan Higher Secondary School, Kunri — Competition & Juror Evaluation Dossier
 
 **Dossier Reference:** `docs/competition/README.md`  
 **Application Release:** Version 1.0.0 (Phase 6 Final Integration & Competition Release)  
@@ -10,7 +10,7 @@
 
 ## 1. Master Documentation Index
 
-Welcome to the official competition dossier for the Oakridge Collegiate Academy Smart School Platform. All materials are organized into self-contained, rigorously verified architectural assets:
+Welcome to the official competition dossier for the Govt. Boys Qazi Sultan Higher Secondary School, Kunri Smart School Platform. All materials are organized into self-contained, rigorously verified architectural assets:
 
 | Document | Subject & Purpose | Key Target Audience |
 | :--- | :--- | :--- |

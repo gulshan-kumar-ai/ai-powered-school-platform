@@ -1,7 +1,7 @@
-# Oakridge Collegiate Academy — Competition Dossier & Project Overview
+# Govt. Boys Qazi Sultan Higher Secondary School, Kunri — Competition Dossier & Project Overview
 
 **Project Name:** Smart School Management & Interactive Learning Ecosystem  
-**Institution:** Oakridge Collegiate Academy  
+**Institution:** Govt. Boys Qazi Sultan Higher Secondary School, Kunri  
 **Version:** 1.0.0 (Phase 6 Final Integration & Competition Release)  
 **Author / Team:** Senior Architecture, Engineering & QA Team  
 **Evaluation Track:** Education Technology, Cloud Architecture & Secure AI Innovation  
@@ -11,7 +11,7 @@
 
 ## 1. Executive Summary
 
-The **Oakridge Collegiate Academy Smart School Platform** is an enterprise-grade, secure, multi-tenant academic web ecosystem built with the **Next.js 16 App Router**, **TypeScript 5 (Strict Mode)**, **Tailwind CSS v4**, and **Supabase PostgreSQL with Row-Level Security (RLS)**.
+The **Govt. Boys Qazi Sultan Higher Secondary School, Kunri Smart School Platform** is an enterprise-grade, secure, multi-tenant academic web ecosystem built with the **Next.js 16 App Router**, **TypeScript 5 (Strict Mode)**, **Tailwind CSS v4**, and **Supabase PostgreSQL with Row-Level Security (RLS)**.
 
 Bridging the divide between public outreach and institutional daily operations, the platform unites five critical stakeholder interfaces:
 1. **Public Institutional Portal:** Responsive showcase featuring academic course catalogs, dynamic campus announcements, admissions guides, and interactive campus event calendars.

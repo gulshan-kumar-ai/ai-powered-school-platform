@@ -30,7 +30,7 @@ const INITIAL_PUBLIC_WELCOME: PublicChatbotMessage = {
   id: "pub-welcome",
   role: "assistant",
   content:
-    "Hello and welcome to Oakridge Collegiate Academy! I am your AI campus guide. Ask me anything about our admissions timeline, academic curriculum, tuition & scholarships, office hours, or campus events.",
+    "Hello and welcome to Govt. Boys Qazi Sultan Higher Secondary School, Kunri! I am your AI campus guide. Ask me anything about our admissions timeline, academic curriculum, tuition & scholarships, office hours, or campus events.",
   citations: [
     { title: "Admissions & Tuition", url: "/admissions" },
     { title: "Academic Programs", url: "/academics" },
@@ -242,9 +242,9 @@ export function PublicSchoolChatbot() {
             m.id === assistantMsgId
               ? {
                   ...m,
-                  content: streamResult.text || "Thank you for contacting Oakridge Academy.",
+                  content: streamResult.text || "Thank you for contacting Govt. Boys Qazi Sultan Higher Secondary School, Kunri.",
                   citations: streamResult.citations,
-                  provider: (streamResult.provider as any) || "verified_local_rag",
+                  provider: streamResult.provider === "fast_and_super" ? "fast_and_super" : "verified_local_rag",
                   isFallback: streamResult.isFallback ?? true,
                   isStreaming: false,
                 }
@@ -334,7 +334,7 @@ export function PublicSchoolChatbot() {
           </div>
           <div className="text-left pr-1 hidden sm:block">
             <div className="text-xs font-extrabold leading-none text-white flex items-center gap-1">
-              <span>Ask Oakridge AI</span>
+              <span>Ask School AI</span>
               <Zap className="w-3 h-3 text-amber-300 fill-amber-300" />
             </div>
             <div className="text-[10px] text-sky-200 mt-0.5">
@@ -355,7 +355,7 @@ export function PublicSchoolChatbot() {
               </div>
               <div>
                 <h3 className="text-sm font-extrabold flex items-center gap-1.5">
-                  <span>Oakridge Smart Assistant</span>
+                  <span>School Smart Assistant</span>
                   <span className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse" />
                 </h3>
                 <div className="text-[10px] text-sky-200 flex items-center gap-1.5">

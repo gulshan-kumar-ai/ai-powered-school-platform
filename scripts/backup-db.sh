@@ -1,9 +1,9 @@
 #!/usr/bin/env bash
 # =============================================================================
-# Oakridge Collegiate Academy — Automated Database Backup Script
+# Govt. Boys Qazi Sultan Higher Secondary School, Kunri — Automated Database Backup Script
 # Usage: ./scripts/backup-db.sh
 # Cron example (Daily at 02:00 AM UTC):
-# 0 2 * * * /bin/bash /opt/oakridge/scripts/backup-db.sh >> /var/log/oakridge-db-backup.log 2>&1
+# 0 2 * * * /bin/bash /opt/school/scripts/backup-db.sh >> /var/log/school-db-backup.log 2>&1
 # =============================================================================
 
 set -euo pipefail
@@ -12,11 +12,11 @@ set -euo pipefail
 BACKUP_DIR="${BACKUP_DIR:-./backups/database}"
 RETENTION_DAYS="${RETENTION_DAYS:-30}"
 TIMESTAMP=$(date +"%Y%m%d_%H%M%S")
-BACKUP_FILE="${BACKUP_DIR}/oakridge_backup_${TIMESTAMP}.sql.gz"
+BACKUP_FILE="${BACKUP_DIR}/school_backup_${TIMESTAMP}.sql.gz"
 
 mkdir -p "${BACKUP_DIR}"
 
-echo "[$(date -u +"%Y-%m-%dT%H:%M:%SZ")] Starting Oakridge Academy database backup..."
+echo "[$(date -u +"%Y-%m-%dT%H:%M:%SZ")] Starting Govt. Boys Qazi Sultan Higher Secondary School database backup..."
 
 # Verify required credentials
 if [ -n "${DATABASE_URL:-}" ]; then

@@ -62,7 +62,7 @@ const CYBER_DETECTION_RULES: RulePattern[] = [
     explanation:
       "Demands for non-standard payment channels (gift cards, cryptocurrency, or sudden wire transfers) are common extortion techniques.",
     safeAction:
-      "Verify tuition or fee status directly with the Oakridge Bursar Office using published telephone numbers.",
+      "Verify tuition or fee status directly with the School Administration Office using published telephone numbers.",
   },
 
   // 4. Authority Impersonation
@@ -76,7 +76,7 @@ const CYBER_DETECTION_RULES: RulePattern[] = [
     explanation:
       "Attackers frequently disguise their communications using leadership names or administrative departments to compel compliance.",
     safeAction:
-      "Check the sender's full email domain (must end with @oakridge.edu). Contact the named official through official internal directory channels.",
+      "Check the sender's full email domain. Contact the named official through official internal directory channels.",
   },
 
   // 5. Suspicious Link Patterns
@@ -115,9 +115,9 @@ export const SYNTHETIC_CYBER_EXAMPLES = [
   {
     id: "sample-phish-urgent",
     title: "Urgent IT Portal Account Suspension (High Risk)",
-    sender: "Oakridge Helpdesk <support-portal-alert@oakridge-verify.xyz>",
+    sender: "School Administration Helpdesk <support-portal-alert@school-verify.xyz>",
     content:
-      "FINAL NOTICE: Your Oakridge Collegiate student portal credentials have expired. You must immediately verify your login and enter your password at http://oakridge-verify.xyz/login within 1 hour or your academic files and exam submissions will be permanently deleted. Act now!",
+      "FINAL NOTICE: Your student portal credentials have expired. You must immediately verify your login and enter your password at http://school-verify.xyz/login within 1 hour or your academic files and exam submissions will be permanently deleted. Act now!",
   },
   {
     id: "sample-scholarship-lure",
@@ -129,7 +129,7 @@ export const SYNTHETIC_CYBER_EXAMPLES = [
   {
     id: "sample-legit-announcement",
     title: "Legitimate School Library Announcement (Low Concern)",
-    sender: "Oakridge Library Services <library@oakridge.edu>",
+    sender: "School Library Services <library@qazisultanboys.edu.pk>",
     content:
       "Hello Scholars, Please be reminded that the digital library has updated its catalog with new AP Physics and Calculus study materials. You may review these resources by visiting your student dashboard at your convenience. Have a great term!",
   },
@@ -203,7 +203,7 @@ export function analyzeSuspiciousMessage(messageText: string): CyberAnalysisResu
     "Never click links or open attachments originating from unverified external senders.",
     "Inspect the actual sender address header rather than the display name.",
     "Do not provide passwords, OTPs, or payment information under any circumstances.",
-    "If in doubt, forward the suspicious message directly to cyber-safety@oakridge.edu or consult the IT Department.",
+    "If in doubt, forward the suspicious message directly to info@qazisultanboys.edu.pk or consult the School Administration.",
   ];
 
   return {
@@ -214,7 +214,7 @@ export function analyzeSuspiciousMessage(messageText: string): CyberAnalysisResu
     indicators: detectedIndicators,
     safe_recommendations: safeRecommendations,
     official_verification_tip:
-      "Important Reminder: Legitimate Oakridge Collegiate administrators will always communicate through official @oakridge.edu emails and will never demand immediate gift card or cryptocurrency payments.",
+      "Important Reminder: Legitimate Govt. Boys Qazi Sultan Higher Secondary School administrators will always communicate through official school channels and will never demand immediate gift card or cryptocurrency payments.",
     analyzed_at: new Date().toISOString(),
   };
 }

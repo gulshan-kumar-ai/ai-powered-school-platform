@@ -105,7 +105,7 @@ const ACADEMIC_QUESTION_TEMPLATES: Record<
       correct_option_index: 1,
       explanation:
         "When fractions have common denominators, add the numerators directly: 1 + 2 = 3, keeping the denominator 4 (3/4).",
-      source_reference: "Oakridge Mathematics Standards - Grade 8 Rational Numbers",
+      source_reference: "School Mathematics Standards - Grade 8 Rational Numbers",
     },
     {
       topicKeywords: ["fraction", "equivalent", "simplification"],
@@ -115,7 +115,7 @@ const ACADEMIC_QUESTION_TEMPLATES: Record<
       options: ["True", "False"],
       correct_option_index: 0,
       explanation: "Dividing both numerator 4 and denominator 12 by their greatest common factor (4) yields 1/3.",
-      source_reference: "Oakridge Mathematics Curriculum Guide Sec 3.1",
+      source_reference: "School Mathematics Curriculum Guide Sec 3.1",
     },
     {
       topicKeywords: ["fraction", "reciprocal", "division"],
@@ -124,7 +124,7 @@ const ACADEMIC_QUESTION_TEMPLATES: Record<
       question_text: "To divide 2/3 by 4/5, you multiply 2/3 by what reciprocal fraction?",
       accepted_answers: ["5/4", "5 / 4"],
       explanation: "Dividing by a fraction is equivalent to multiplying by its reciprocal. The reciprocal of 4/5 is 5/4.",
-      source_reference: "Oakridge Middle School Mathematics Diagnostic Handbook",
+      source_reference: "School Mathematics Diagnostic Handbook",
     },
   ],
   mechanics: [
@@ -165,7 +165,7 @@ const ACADEMIC_QUESTION_TEMPLATES: Record<
         "d^2x/dt^2",
       ],
       explanation: "The first derivative gives instantaneous velocity dx/dt, and the second derivative with respect to time gives acceleration d²x/dt².",
-      source_reference: "Oakridge AP Physics Syllabus - Kinematic Calculus",
+      source_reference: "Physics Syllabus - Kinematic Calculus",
     },
   ],
   cybersecurity: [
@@ -182,7 +182,7 @@ const ACADEMIC_QUESTION_TEMPLATES: Record<
       ],
       correct_option_index: 1,
       explanation: "Artificial urgency paired with a request for login credentials or private verification on third-party links is the hallmark of phishing.",
-      source_reference: "Oakridge Acceptable Use Policy & Digital Citizenship Handbook",
+      source_reference: "School Acceptable Use Policy & Digital Citizenship Handbook",
     },
     {
       topicKeywords: ["mfa", "2fa", "authentication", "password"],
@@ -201,7 +201,7 @@ const ACADEMIC_QUESTION_TEMPLATES: Record<
       question_text: "What type of malicious software encrypts victim files and demands payment for the decryption key?",
       accepted_answers: ["ransomware", "Ransomware"],
       explanation: "Ransomware locks or encrypts system files and extorts the victim with payment demands.",
-      source_reference: "Oakridge CyberSafe Challenge - Malware Typologies",
+      source_reference: "CyberSafe Challenge - Malware Typologies",
     },
   ],
   biology: [
@@ -213,7 +213,7 @@ const ACADEMIC_QUESTION_TEMPLATES: Record<
       options: ["Ribosome", "Mitochondria", "Golgi apparatus", "Endoplasmic reticulum"],
       correct_option_index: 1,
       explanation: "Mitochondria carry out the Krebs cycle and oxidative phosphorylation to produce ATP, the energetic currency of the cell.",
-      source_reference: "Oakridge Honors Biology Curriculum Guide (Unit 3)",
+      source_reference: "Biology Curriculum Guide (Unit 3)",
     },
     {
       topicKeywords: ["dna", "rna", "translation", "transcription"],
@@ -222,7 +222,7 @@ const ACADEMIC_QUESTION_TEMPLATES: Record<
       question_text: "What enzyme is responsible for synthesizing RNA from a DNA template during transcription?",
       accepted_answers: ["RNA polymerase", "rna polymerase", "RNA Polymerase"],
       explanation: "RNA polymerase binds to promoter regions and synthesizes the complementary mRNA strand.",
-      source_reference: "Oakridge Honors Biology Curriculum Guide (Unit 5: Molecular Genetics)",
+      source_reference: "Biology Curriculum Guide (Unit 5: Molecular Genetics)",
     },
   ],
 };

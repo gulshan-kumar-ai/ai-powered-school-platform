@@ -1,4 +1,4 @@
-# Oakridge Collegiate Academy — Smart School Website & AI-Powered Educational Platform (Phase 4)
+# Govt. Boys Qazi Sultan Higher Secondary School, Kunri — Smart School Website & AI-Powered Educational Platform (Phase 4)
 
 > **Phase 4 Deliverable**: Fully functional, secure, explainable, and practical **AI-Powered Smart School Platform**. Features an interactive **Socratic AI Study Assistant** with pedagogical hint workflows, simplified metaphor explanations, and digital library links; a **School Knowledge Assistant using Document RAG** with BM25 term retrieval, exact citation attribution, prompt injection defense, and role/class authorization; **Personalised Learning Recommendations** with diagnostic triggers, explainable rationale, and student dismissibility; an **AI-Assisted Quiz Generation Workspace** for teachers with draft validation, edit controls, and strict unpublished defaults; an **AI Cybersecurity Threat & Suspicious Message Analyzer** identifying phishing triggers, pressure tactics, and credential harvesting; **AI-Assisted Academic Insights for Teachers** with statistical vs. pedagogical separation; a **Public School Information Chatbot** with verified source citations and a strict privacy firewall; PostgreSQL schema migrations with Row-Level Security (`20261021_phase4_ai.sql`); zero-cost local deterministic fallback with optional external LLM API configuration; and **103 automated test assertions** passing with zero errors and zero lint warnings.
 
@@ -6,7 +6,7 @@
 
 ## 1. Project Overview & Architectural Evolution
 
-This repository contains the unified web platform, school management system, and AI educational platform for **Oakridge Collegiate Academy**. Built using Next.js App Router (Turbopack, React 19), TypeScript (strict mode), Tailwind CSS v4, and a relational architecture supporting live Supabase PostgreSQL alongside a zero-config local development store fallback.
+This repository contains the unified web platform, school management system, and AI educational platform for **Govt. Boys Qazi Sultan Higher Secondary School, Kunri**. Built using Next.js App Router (Turbopack, React 19), TypeScript (strict mode), Tailwind CSS v4, and a relational architecture supporting live Supabase PostgreSQL alongside a zero-config local development store fallback.
 
 ### Project Roadmap Progression
 - **Phase 0 (Complete)**: Architectural foundation, design system, tokens, layout shell, and component scaffolding.
@@ -274,4 +274,4 @@ The repository includes a comprehensive automated verification suite with 103 as
 
 ---
 
-&copy; 2026 Oakridge Collegiate Academy. All rights reserved.
+&copy; 2026 Govt. Boys Qazi Sultan Higher Secondary School, Kunri. All rights reserved.

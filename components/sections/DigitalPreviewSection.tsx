@@ -29,7 +29,7 @@ export function DigitalPreviewSection() {
           badge="Future Technology Integration"
           badgeVariant="roadmap"
           title="Digital Learning Ecosystem: Architecture Preview"
-          description="In later development phases, Oakridge Collegiate Academy will integrate intelligent learning tools, digital resource vaults, and proactive cybersecurity awareness."
+          description="In later development phases, Govt. Boys Qazi Sultan Higher Secondary School, Kunri will integrate intelligent learning tools, digital resource vaults, and proactive cybersecurity awareness."
         />
 
         {/* Roadmap Architecture Note */}

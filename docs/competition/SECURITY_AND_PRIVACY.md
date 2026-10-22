@@ -2,14 +2,14 @@
 
 **Document Reference:** `docs/competition/SECURITY_AND_PRIVACY.md`  
 **Classification:** Competition Jury Technical Presentation Asset  
-**Institution:** Oakridge Collegiate Academy  
+**Institution:** Govt. Boys Qazi Sultan Higher Secondary School, Kunri  
 **Regulatory Frameworks:** FERPA (US), GDPR (EU), COPPA (Children's Online Privacy)  
 
 ---
 
 ## 1. Security Architecture Principles
 
-Oakridge Collegiate Academy's security architecture is built on the principle of **Defense-in-Depth**. Security is not delegated to a single perimeter firewall or frontend check; it is enforced across every application layer:
+Govt. Boys Qazi Sultan Higher Secondary School, Kunri's security architecture is built on the principle of **Defense-in-Depth**. Security is not delegated to a single perimeter firewall or frontend check; it is enforced across every application layer:
 
 ```
 [Browser / Mobile Client]

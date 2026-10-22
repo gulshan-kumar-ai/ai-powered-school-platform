@@ -186,7 +186,7 @@ export default function StudentResourceDetailPage({ params }: ResourceDetailPage
                   {resource.title}
                 </h3>
                 <p className="text-xs text-slate-400 max-w-md mx-auto mt-1">
-                  Hosted on the secure Oakridge Collegiate institutional vault. Access granted under student academic enrollment.
+                  Hosted on the secure Govt. Boys Qazi Sultan Higher Secondary School institutional vault. Access granted under student academic enrollment.
                 </p>
               </div>
               <div className="pt-2">

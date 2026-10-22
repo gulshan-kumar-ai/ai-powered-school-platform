@@ -2,7 +2,7 @@
 
 **Document Reference:** `docs/competition/PROBLEM_STATEMENT.md`  
 **Classification:** Competition Jury Presentation Asset  
-**Institution:** Oakridge Collegiate Academy  
+**Institution:** Govt. Boys Qazi Sultan Higher Secondary School, Kunri  
 
 ---
 
@@ -37,7 +37,7 @@ High school and collegiate students are prime targets for coercive credential-ha
 
 ## 2. Institutional Objectives for the Unified Solution
 
-Oakridge Collegiate Academy sought to build a unified, cloud-native, and self-reliant academic ecosystem that:
+Govt. Boys Qazi Sultan Higher Secondary School, Kunri sought to build a unified, cloud-native, and self-reliant academic ecosystem that:
 1. **Unifies All 5 Stakeholder Audiences:** Visitors, Administrators, Faculty, Students, and Parents on a single performant codebase with zero data duplication.
 2. **Guarantees Defense-in-Depth:** Hardware and route-level RBAC, server-side assessment calculation, and complete custodial isolation.
 3. **Embeds Socratic, Grounded AI:** Retrieval-Augmented Generation (RAG) strictly anchored in approved academy syllabi with zero academic dishonesty assistance.

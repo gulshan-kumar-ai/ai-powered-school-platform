@@ -30,7 +30,7 @@ export function EventsSection() {
               Upcoming School Events & Gatherings
             </h2>
             <p className="mt-2 text-sm sm:text-base text-slate-600 max-w-2xl">
-              Experience the vibrant Oakridge community through academic symposiums, arts recitals,
+              Experience the vibrant Govt. Boys Qazi Sultan Higher Secondary School community through academic symposiums, arts recitals,
               athletic fixtures, and prospective family discovery sessions.
             </p>
           </div>

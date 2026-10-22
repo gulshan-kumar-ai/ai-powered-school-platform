@@ -32,14 +32,14 @@ export const PUBLIC_SCHOOL_KNOWLEDGE: PublicFact[] = [
     title: "Admissions & Enrollment Process",
     url: "/admissions",
     answer:
-      "Admissions at Oakridge Collegiate Academy follow a comprehensive five-stage evaluation: (1) Online Inquiry Submission, (2) Entrance Diagnostic Evaluation, (3) Candidate Student Interview, (4) Transcripts Review, and (5) Formal Offer of Admission. Applications for the upcoming academic year are accepted on a rolling basis, with priority deadline on December 15.",
+      "Admissions at Govt. Boys Qazi Sultan Higher Secondary School, Kunri follow a comprehensive evaluation process: (1) Online Inquiry Submission, (2) Academic Verification, (3) Candidate Student Interview, (4) Records Review, and (5) Formal Admission Offer. Applications for the upcoming academic year are accepted for primary, secondary, and higher secondary classes.",
   },
   {
     keywords: ["fee", "tuition", "cost", "scholarship", "financial aid", "bursary"],
     title: "Tuition & Financial Aid Schedule",
     url: "/admissions",
     answer:
-      "Oakridge offers merit-based STEM & Arts scholarships as well as need-based bursaries covering up to 60% of annual tuition. Detailed fee structures by grade level can be viewed on our Admissions page or requested directly from the Bursar Office at bursar@oakridge.edu.",
+      "Govt. Boys Qazi Sultan Higher Secondary School, Kunri offers accessible public education under the School Education & Literacy Department, Government of Sindh. Detailed fee structures and scholarship programs can be viewed on our Admissions page or requested directly from the School Office.",
   },
   {
     keywords: ["hour", "office hours", "schedule", "open", "timing", "visit"],
@@ -53,14 +53,14 @@ export const PUBLIC_SCHOOL_KNOWLEDGE: PublicFact[] = [
     title: "School Contact Information",
     url: "/contact",
     answer:
-      "You can reach Oakridge Collegiate Academy at: Address: 1200 Academy Boulevard, Oakridge; Telephone: +1 (555) 234-5678; General Inquiries: info@oakridge.edu; Admissions: admissions@oakridge.edu.",
+      "You can reach Govt. Boys Qazi Sultan Higher Secondary School, Kunri at: Address: Station Road Corridor, Bab-e-Ibraheem Momin Campus, Kunri, Sindh, Pakistan; Telephone: +92 238 558252; General Inquiries: info@qazisultanboys.edu.pk; Admissions: admissions@qazisultanboys.edu.pk.",
   },
   {
     keywords: ["academic", "curriculum", "ap", "stem", "program", "course", "subjects"],
     title: "Academic Programs & AP Curriculum",
     url: "/academics",
     answer:
-      "Oakridge Collegiate Academy delivers a rigorous preparatory curriculum featuring 18 Advanced Placement (AP) courses, an integrated STEM Robotics & AI Innovation Lab, comprehensive Fine Arts, and Global World Languages (French, Spanish, Mandarin).",
+      "Govt. Boys Qazi Sultan Higher Secondary School, Kunri delivers comprehensive education from primary to higher secondary levels (Class XI & XII), affiliated with the Board of Intermediate and Secondary Education (BISE) Mirpur Khas, featuring science, humanities, and computer studies curricula.",
   },
   {
     keywords: ["policy", "attendance", "uniform", "dress code", "integrity", "rule"],
@@ -74,7 +74,7 @@ export const PUBLIC_SCHOOL_KNOWLEDGE: PublicFact[] = [
     title: "Athletics & Student Life",
     url: "/student-life",
     answer:
-      "Oakridge offers over 32 student-run clubs, competitive Varsity and Junior Varsity athletics (Basketball, Soccer, Track & Field, Swimming), orchestral ensembles, and competitive debate and robotics teams.",
+      "Govt. Boys Qazi Sultan Higher Secondary School, Kunri offers over 32 student-run clubs, competitive sports tournaments (Cricket, Football, Athletics), quiz societies, and community self-reliance initiatives through the School Management Committee.",
   },
 ];
 
@@ -243,7 +243,7 @@ export function retrieveSchoolKnowledgeContext(query: string): {
 
   // Fallback default citation if none matched
   if (citations.length === 0) {
-    citations.push({ title: "Oakridge Campus Overview", url: "/" });
+    citations.push({ title: "School Campus Overview", url: "/" });
   }
 
   return {
@@ -257,18 +257,18 @@ export function retrieveSchoolKnowledgeContext(query: string): {
  * Builds the system prompt grounding the AI model in verified school records
  */
 export function buildSystemPrompt(schoolContextText: string): string {
-  return `You are the official SmartSchool AI Campus Guide for Oakridge Collegiate Academy (${siteConfig.name}).
+  return `You are the official SmartSchool AI Campus Guide for Govt. Boys Qazi Sultan Higher Secondary School, Kunri (${siteConfig.name}).
 Your role is to deliver fast, accurate, concise, and helpful answers to students, parents, and prospective visitors.
 
 CORE INSTRUCTIONS:
 1. GENERAL QUESTIONS: If the user asks a general educational, historical, scientific, or greeting question (e.g. "Hello", "What is photosynthesis?", "Explain Newton's second law"), answer clearly, politely, and concisely using your broad knowledge.
-2. SCHOOL-SPECIFIC QUESTIONS: If the user asks about Oakridge Academy (admissions, tuition, courses, office hours, campus events, dress code, policies, or contact details), base your answer STRICTLY on the VERIFIED SCHOOL INFORMATION provided below.
+2. SCHOOL-SPECIFIC QUESTIONS: If the user asks about Govt. Boys Qazi Sultan Higher Secondary School, Kunri (admissions, courses, office hours, campus events, dress code, policies, or contact details), base your answer STRICTLY on the VERIFIED SCHOOL INFORMATION provided below.
 3. MISSING OR UNVERIFIED SCHOOL DETAILS: If a school-related inquiry asks for details NOT found in the VERIFIED SCHOOL INFORMATION below (e.g. unknown policies, specific teacher cellphone numbers, or unannounced fees), state clearly: "I do not have verified records on that specific topic in our public school handbook. For official guidance, please contact the School Office directly at ${siteConfig.contact.mainPhone} or email ${siteConfig.contact.mainEmail}." DO NOT invent or fabricate school facts.
 4. PRIVACY PROTECTION: You cannot access or reveal private student grades, personal report cards, staff passwords, or private home addresses. Direct anyone asking for private records to sign in to the official Portal.
 5. FORMATTING: Keep answers readable and well-structured with bullet points or bold text where appropriate.
 
 VERIFIED SCHOOL INFORMATION:
-${schoolContextText || "General institutional overview: Co-educational preparatory institution offering AP and STEM programs."}`;
+${schoolContextText || "General institutional overview: Comprehensive public secondary and higher secondary school in Kunri, Sindh."}`;
 }
 
 /**

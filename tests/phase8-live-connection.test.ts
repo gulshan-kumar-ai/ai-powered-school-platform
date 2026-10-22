@@ -20,7 +20,6 @@ import {
   resolveChatCompletionsEndpoint,
   checkPrivacyViolations,
 } from "../lib/ai/fast-super-service";
-import * as http from "http";
 
 let passedCount = 0;
 let failedCount = 0;
@@ -227,7 +226,7 @@ async function runPhase8Tests() {
     {
       id: "turn-2",
       role: "assistant" as const,
-      content: "Yes, Oakridge Collegiate Academy offers AP Chemistry featuring advanced stoichiometry, kinetics, and spectroscopy labs.",
+      content: "Yes, Govt. Boys Qazi Sultan Higher Secondary School, Kunri offers AP Chemistry featuring advanced stoichiometry, kinetics, and spectroscopy labs.",
       citations: [{ title: "Academic Programs", url: "/academics" }],
       timestamp: "09:01 AM",
     },
@@ -281,8 +280,8 @@ async function runPhase8Tests() {
           `Provider: ${realResult.provider}`
         );
       }
-    } catch (e: any) {
-      assert(false, "Live external request threw error", e?.message);
+    } catch (e: unknown) {
+      assert(false, "Live external request threw error", e instanceof Error ? e.message : String(e));
     }
   } else {
     console.log("  \x1b[33mℹ [Honest Blocker Report]\x1b[0m");

@@ -56,9 +56,9 @@ const STORY_STEPS: StoryStep[] = [
     roleColor: "bg-sky-500/10 text-sky-400 border-sky-500/30",
     icon: Compass,
     overview:
-      "A visitor navigates the responsive Oakridge Academy public portal, discovering academic programs, admissions deadlines, announcements, faculty credentials, and digital campus resources.",
+      "A visitor navigates the responsive Govt. Boys Qazi Sultan Higher Secondary School, Kunri public portal, discovering academic programs, admissions deadlines, announcements, faculty credentials, and digital campus resources.",
     script:
-      "\"Welcome to the Oakridge Collegiate Academy platform. We begin from the perspective of an external visitor. The public website delivers a modern, accessible interface with real-time school announcements, comprehensive AP curriculum pathways, an interactive admissions guide, and institutional event schedules. Built on Next.js 16 App Router with zero hydration mismatch and optimized responsive layouts, the public shell establishes institutional credibility within seconds.\"",
+      "\"Welcome to the Govt. Boys Qazi Sultan Higher Secondary School, Kunri platform. We begin from the perspective of an external visitor. The public website delivers a modern, accessible interface with real-time school announcements, comprehensive curriculum pathways, an interactive admissions guide, and institutional event schedules. Built on Next.js 16 App Router with zero hydration mismatch and optimized responsive layouts, the public shell establishes institutional credibility within seconds.\"",
     keyPoints: [
       "Dynamic campus announcements and term calendars",
       "Full curriculum catalog with course syllabi outlines",
@@ -538,12 +538,12 @@ export default function CompetitionDemoPage() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 py-3 flex flex-wrap items-center justify-between gap-4">
           <div className="flex items-center gap-3">
             <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-sky-500 to-indigo-600 flex items-center justify-center font-bold text-white shadow-lg shadow-sky-500/20">
-              OA
+              GBQS
             </div>
             <div>
               <div className="flex items-center gap-2">
                 <h1 className="text-base font-bold text-white tracking-tight">
-                  Oakridge Collegiate Academy
+                  Govt. Boys Qazi Sultan Higher Secondary School, Kunri
                 </h1>
                 <span className="text-[10px] uppercase tracking-wider font-semibold px-2 py-0.5 rounded-full bg-amber-500/20 text-amber-300 border border-amber-500/40">
                   Competition Demo Console

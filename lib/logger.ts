@@ -1,5 +1,5 @@
 /**
- * Production-Grade Structured Logger for Oakridge Collegiate Academy
+ * Production-Grade Structured Logger for Govt. Boys Qazi Sultan Higher Secondary School, Kunri
  * Implements automated PII and credential scrubbing to comply with GDPR/FERPA guidelines.
  */
 

@@ -1,5 +1,5 @@
 # -----------------------------------------------------------------------------
-# Multi-Stage Production Dockerfile for Oakridge Collegiate Academy
+# Multi-Stage Production Dockerfile for Govt. Boys Qazi Sultan Higher Secondary School, Kunri
 # Target Architecture: Node.js 20 on Alpine Linux (Lightweight, Secure)
 # -----------------------------------------------------------------------------
 

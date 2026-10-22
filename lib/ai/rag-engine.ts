@@ -17,7 +17,7 @@ export const APPROVED_DOCUMENT_CHUNKS: RAGChunk[] = [
   {
     id: "chunk-handbook-01",
     resource_id: "r0000000-0000-0000-0000-000000000001",
-    document_title: "Oakridge Academy Student Handbook & Academic Code",
+    document_title: "Govt. Boys Qazi Sultan Higher Secondary School Student Handbook & Academic Code",
     subject_id: "40000000-0000-0000-0000-000000000001",
     topic: "Academic Integrity & Assessment Guidelines",
     section_title: "Section 4.2: Practice Assessments & Summative Exams",
@@ -29,7 +29,7 @@ export const APPROVED_DOCUMENT_CHUNKS: RAGChunk[] = [
   {
     id: "chunk-handbook-02",
     resource_id: "r0000000-0000-0000-0000-000000000001",
-    document_title: "Oakridge Academy Student Handbook & Academic Code",
+    document_title: "Govt. Boys Qazi Sultan Higher Secondary School Student Handbook & Academic Code",
     subject_id: "40000000-0000-0000-0000-000000000001",
     topic: "Attendance & Punctuality Policy",
     section_title: "Section 2.1: Minimum Attendance Registry Requirements",

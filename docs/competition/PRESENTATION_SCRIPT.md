@@ -30,7 +30,7 @@
 **Speaker:**  
 "Good morning, members of the jury. Today, secondary and collegiate schools operate across four to seven disconnected applications. This fragmentation causes administrative friction, exposes student data, and introduces dangerous assessment vulnerabilities where students manipulate client-side JavaScript to reveal quiz answers.
 
-To solve this, we present the **Oakridge Collegiate Academy Smart School Platform** — a unified, production-hardened academic ecosystem built on Next.js 16 App Router, TypeScript strict mode, and Supabase PostgreSQL with strict Row-Level Security."
+To solve this, we present the **Govt. Boys Qazi Sultan Higher Secondary School, Kunri Smart School Platform** — a unified, production-hardened academic ecosystem built on Next.js 16 App Router, TypeScript strict mode, and Supabase PostgreSQL with strict Row-Level Security."
 
 ```
 ╔═══════════════════════════════════════════════════════════════════════════════╗

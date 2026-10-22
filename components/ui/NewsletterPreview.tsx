@@ -35,7 +35,7 @@ export function NewsletterPreview() {
 
       <div className="max-w-xl">
         <h4 className="text-xl font-bold tracking-tight text-white mb-2">
-          Subscribe to the Oakridge Monthly Gazette
+          Subscribe to the Govt. Boys Qazi Sultan Monthly Gazette
         </h4>
         <p className="text-xs sm:text-sm text-slate-300 leading-relaxed mb-6">
           Receive curated updates on student achievements, guest lecture schedules, campus events, and academic term summaries delivered directly to your inbox.

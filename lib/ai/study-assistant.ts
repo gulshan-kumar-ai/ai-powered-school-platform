@@ -302,8 +302,8 @@ async function callExternalLLM(params: {
 }): Promise<string> {
   const { prompt, subjectName, className, citations, requestHint, requestSimplified } = params;
 
-  const systemInstructions = `You are the Oakridge Collegiate Academy AI Study Assistant.
-You guide high school students using the Socratic method.
+  const systemInstructions = `You are the Govt. Boys Qazi Sultan Higher Secondary School, Kunri AI Study Assistant.
+You guide students using the Socratic method.
 Target subject: ${subjectName}. Educational Level: ${className}.
 Rules:
 - Promote understanding, step-by-step thinking, and conceptual clarity.

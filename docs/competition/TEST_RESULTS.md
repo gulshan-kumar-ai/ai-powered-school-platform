@@ -2,14 +2,14 @@
 
 **Document Reference:** `docs/competition/TEST_RESULTS.md`  
 **Classification:** Competition Jury Technical Presentation Asset  
-**Institution:** Oakridge Collegiate Academy  
+**Institution:** Govt. Boys Qazi Sultan Higher Secondary School, Kunri  
 **Verification Standard:** 100% Measured Data — Zero Interpolated or Fabricated Results  
 
 ---
 
 ## 1. Executive QA Summary
 
-Across all development phases (Phases 2 through 6), the Oakridge Collegiate Academy platform was subjected to rigorous automated verification. All tests were executed in real runtime environments against the application codebase, data store, authentication middleware, and AI engines.
+Across all development phases (Phases 2 through 6), the Govt. Boys Qazi Sultan Higher Secondary School, Kunri platform was subjected to rigorous automated verification. All tests were executed in real runtime environments against the application codebase, data store, authentication middleware, and AI engines.
 
 | Metric | Measured Value | Standard Required | Status |
 | :--- | :--- | :--- | :--- |

@@ -2,13 +2,13 @@
 
 **Document Reference:** `docs/competition/PROPOSED_SOLUTION.md`  
 **Classification:** Competition Jury Presentation Asset  
-**Institution:** Oakridge Collegiate Academy  
+**Institution:** Govt. Boys Qazi Sultan Higher Secondary School, Kunri  
 
 ---
 
 ## 1. System Vision
 
-The **Oakridge Collegiate Academy Smart School Platform** solves institutional fragmentation by consolidating the public presence, academic information system, digital courseware repository, interactive assessment engine, pedagogical AI, and custodial family communications into a single, cohesive, modern web application.
+The **Govt. Boys Qazi Sultan Higher Secondary School, Kunri Smart School Platform** solves institutional fragmentation by consolidating the public presence, academic information system, digital courseware repository, interactive assessment engine, pedagogical AI, and custodial family communications into a single, cohesive, modern web application.
 
 Built on the **Next.js 16 App Router** with **Turbopack**, **TypeScript 5 (Strict Mode)**, **Tailwind CSS v4**, and **Supabase PostgreSQL**, the platform guarantees sub-100ms response times, zero client-side hydration shifts, and uncompromising custodial privacy.
 
@@ -18,7 +18,7 @@ Built on the **Next.js 16 App Router** with **Turbopack**, **TypeScript 5 (Stric
 
 ```
 ┌────────────────────────────────────────────────────────────────────────┐
-│               Oakridge Collegiate Academy Architecture                 │
+│               Govt. Boys Qazi Sultan Higher Secondary School, Kunri Architecture                 │
 ├───────────────────┬───────────────────┬────────────────────────────────┤
 │ 1. Public Portal  │ 2. Faculty Hub    │ 3. Student & Parent Workspaces │
 │  - Academic Paths │  - Class Scoping  │  - Server-Scored Quizzes       │

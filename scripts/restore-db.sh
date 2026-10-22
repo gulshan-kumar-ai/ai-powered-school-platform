@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 # =============================================================================
-# Oakridge Collegiate Academy — Database Disaster Recovery & Restore Script
+# Govt. Boys Qazi Sultan Higher Secondary School, Kunri — Database Disaster Recovery & Restore Script
 # Usage: ./scripts/restore-db.sh <path-to-backup-file.sql.gz>
 # =============================================================================
 

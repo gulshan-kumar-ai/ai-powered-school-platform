@@ -25,7 +25,7 @@ export async function GET() {
     checks: {
       application: {
         status: "pass",
-        message: "Oakridge Collegiate Academy core web service active",
+        message: "Govt. Boys Qazi Sultan Higher Secondary School, Kunri core web service active",
       },
       database: {
         status: "pass",

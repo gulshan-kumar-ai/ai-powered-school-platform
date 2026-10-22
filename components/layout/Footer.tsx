@@ -26,7 +26,7 @@ export function Footer() {
               Official School Platform
             </Badge>
             <span className="text-slate-300">
-              Oakridge Collegiate Academy — Smart School Management &amp; Learning Platform.
+              Govt. Boys Qazi Sultan Higher Secondary School, Kunri — Smart School Management &amp; Learning Platform.
             </span>
           </div>
           <div className="flex items-center gap-2 text-slate-400">

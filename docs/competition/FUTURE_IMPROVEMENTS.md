@@ -2,7 +2,7 @@
 
 **Document Reference:** `docs/competition/FUTURE_IMPROVEMENTS.md`  
 **Classification:** Competition Jury Technical Presentation Asset  
-**Institution:** Oakridge Collegiate Academy  
+**Institution:** Govt. Boys Qazi Sultan Higher Secondary School, Kunri  
 
 ---
 

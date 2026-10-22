@@ -1,4 +1,4 @@
-# Oakridge Collegiate Academy — Production Handover & Operations Manual
+# Govt. Boys Qazi Sultan Higher Secondary School, Kunri — Production Handover & Operations Manual
 **System Version:** 1.0.0 (Phases 0–5 Production Release)  
 **Classification:** Academy Technical Documentation & User Handover  
 **Date:** October 2026  
@@ -7,7 +7,7 @@
 
 ## Executive Summary
 
-Oakridge Collegiate Academy's web and learning management platform is a production-hardened, modern, accessible, and secure digital educational ecosystem. The system bridges public institutional outreach with high-performance academic administration, digital learning, gamification, and intelligent AI-powered study assistance.
+Govt. Boys Qazi Sultan Higher Secondary School, Kunri's web and learning management platform is a production-hardened, modern, accessible, and secure digital educational ecosystem. The system bridges public institutional outreach with high-performance academic administration, digital learning, gamification, and intelligent AI-powered study assistance.
 
 This document serves as the operational handover manual for the Academy's Board of Governors, IT Administration Team, Academic Faculty, Student Body, and DevOps Maintenance Engineers.
 
@@ -270,5 +270,5 @@ git push origin main --tags
 
 ---
 
-**Handover sign-off:** Oakridge Collegiate Academy DevOps & Engineering Team.
+**Handover sign-off:** Govt. Boys Qazi Sultan Higher Secondary School, Kunri DevOps & Engineering Team.
 

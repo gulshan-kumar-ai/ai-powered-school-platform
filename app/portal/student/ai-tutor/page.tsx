@@ -31,12 +31,12 @@ const INITIAL_WELCOME_MESSAGE: AIStudyMessage = {
   id: "msg-welcome",
   role: "assistant",
   content:
-    "Hello! I am your Oakridge Socratic Study Assistant. My goal is to guide your understanding step-by-step rather than simply handing over final answers. Select your subject, ask any question about a concept or problem, and let's explore it together!",
+    "Hello! I am your Govt. Boys Qazi Sultan Higher Secondary School Socratic Study Assistant. My goal is to guide your understanding step-by-step rather than simply handing over final answers. Select your subject, ask any question about a concept or problem, and let's explore it together!",
   suggested_follow_ups: [
     "How does Newton's Second Law explain acceleration?",
     "Can you explain fractions and equivalent denominators?",
     "What is the difference between mitosis and meiosis?",
-    "How does the Oakridge academic attendance policy work?",
+    "How does the academic attendance policy work?",
   ],
   timestamp: new Date().toLocaleTimeString([], { hour: "2-digit", minute: "2-digit" }),
 };

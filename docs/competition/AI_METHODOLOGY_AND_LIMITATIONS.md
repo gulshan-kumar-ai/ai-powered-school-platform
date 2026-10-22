@@ -2,13 +2,13 @@
 
 **Document Reference:** `docs/competition/AI_METHODOLOGY_AND_LIMITATIONS.md`  
 **Classification:** Competition Jury Technical Presentation Asset  
-**Institution:** Oakridge Collegiate Academy  
+**Institution:** Govt. Boys Qazi Sultan Higher Secondary School, Kunri  
 
 ---
 
 ## 1. Pedagogical AI Principles
 
-Oakridge Collegiate Academy rejects the "black box autocomplete" approach of consumer LLMs. Our AI learning architecture is governed by five foundational pedagogical rules:
+Govt. Boys Qazi Sultan Higher Secondary School, Kunri rejects the "black box autocomplete" approach of consumer LLMs. Our AI learning architecture is governed by five foundational pedagogical rules:
 1. **Socratic Guidance over Direct Answers:** The model is strictly instructed never to solve homework or complete exam problems for the student. It breaks complex problems into guiding questions, hints, and conceptual derivations.
 2. **Approved Curriculum Grounding (RAG):** Answers are grounded in the school's approved textbooks and syllabi via Retrieval-Augmented Generation.
 3. **Transparent Operational Engine Modes:** The student interface features an explicit engine badge indicating whether responses are generated via live cloud AI (`cloud_live`) or verified offline RAG fallback (`offline_rag_verified`).
@@ -66,7 +66,7 @@ Only chunks scoring above the 0.65 confidence threshold are included in the RAG 
 
 The study assistant operates under strict system constraints:
 ```markdown
-You are the Oakridge Collegiate Academy Socratic AI Study Assistant.
+You are the Govt. Boys Qazi Sultan Higher Secondary School, Kunri Socratic AI Study Assistant.
 Your mission is to guide scholars toward deep conceptual understanding.
 
 Core Guardrails:

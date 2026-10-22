@@ -1,4 +1,4 @@
-# Project Review & Technical Audit: Oakridge Collegiate Academy
+# Project Review & Technical Audit: Govt. Boys Qazi Sultan Higher Secondary School, Kunri
 **Smart School Website, Role-Based Management System & AI Educational Platform**
 
 ---
@@ -7,7 +7,7 @@
 
 | Attribute | Details |
 | :--- | :--- |
-| **Project Name** | Oakridge Collegiate Academy — Smart School Platform |
+| **Project Name** | Govt. Boys Qazi Sultan Higher Secondary School, Kunri — Smart School Platform |
 | **System Version** | `0.1.0` (Production-Ready Architecture, Phase 7 Complete) |
 | **Audit Date** | October 2026 |
 | **Platform Stack** | Next.js 16.4.2 (App Router, Turbopack, React 19), TypeScript 5, Tailwind CSS v4, Supabase / PostgreSQL |
@@ -21,7 +21,7 @@
 
 ## 1. Executive Summary
 
-This document presents a comprehensive, deep technical review of the **Oakridge Collegiate Academy** web platform and school management system. Developed systematically through sequential developmental phases (Phases 0 through 7), the platform delivers a modern, unified, and highly secure digital ecosystem tailored for secondary educational institutions.
+This document presents a comprehensive, deep technical review of the **Govt. Boys Qazi Sultan Higher Secondary School, Kunri** web platform and school management system. Developed systematically through sequential developmental phases (Phases 0 through 7), the platform delivers a modern, unified, and highly secure digital ecosystem tailored for secondary educational institutions.
 
 The project successfully integrates three core systems into a cohesive application:
 1. **Public Institutional Portal:** A modern, accessible, high-performance website showcasing academic offerings, admissions, leadership, news, campus events, and an interactive facility gallery.
@@ -102,7 +102,7 @@ graph TD
 
 ### 3.1 Public Institutional Website
 
-The public website serves as the primary digital front door for Oakridge Collegiate Academy, delivering prospective families, students, and community partners an engaging, informative experience.
+The public website serves as the primary digital front door for Govt. Boys Qazi Sultan Higher Secondary School, Kunri, delivering prospective families, students, and community partners an engaging, informative experience.
 
 - **Homepage (`/`):** Features an immersive hero with dynamic call-to-actions, statistical achievement highlights (100% university acceptance, 18 AP courses, 12:1 student-to-teacher ratio), school news feed, upcoming events, and quick-access portal shortcuts.
 - **About Academy (`/about`):** Detailed institutional history, leadership directory, educational philosophy, and governance structure.
@@ -348,4 +348,4 @@ Two automated POSIX shell scripts in `scripts/` provide database resilience:
 ```
 
 ### Auditor Conclusion
-The **Oakridge Collegiate Academy Smart School Platform** represents a state-of-the-art educational software architecture. It successfully balances cutting-edge AI capabilities with uncompromising privacy safeguards, rigorous pedagogical ethics, and bulletproof code quality. With all 237 automated tests passing, 0 linter warnings, and a fully functional zero-cost local fallback mode, the project is certified **production-ready** for live deployment and academic competition evaluation.
+The **Govt. Boys Qazi Sultan Higher Secondary School, Kunri Smart School Platform** represents a state-of-the-art educational software architecture. It successfully balances cutting-edge AI capabilities with uncompromising privacy safeguards, rigorous pedagogical ethics, and bulletproof code quality. With all 237 automated tests passing, 0 linter warnings, and a fully functional zero-cost local fallback mode, the project is certified **production-ready** for live deployment and academic competition evaluation.

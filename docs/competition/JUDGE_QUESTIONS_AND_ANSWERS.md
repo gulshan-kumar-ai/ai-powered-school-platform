@@ -2,7 +2,7 @@
 
 **Document Reference:** `docs/competition/JUDGE_QUESTIONS_AND_ANSWERS.md`  
 **Classification:** Competition Jury Presentation Asset & Technical Defense  
-**Institution:** Oakridge Collegiate Academy  
+**Institution:** Govt. Boys Qazi Sultan Higher Secondary School, Kunri  
 
 ---
 

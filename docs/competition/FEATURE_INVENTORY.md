@@ -2,7 +2,7 @@
 
 **Document Reference:** `docs/competition/FEATURE_INVENTORY.md`  
 **Classification:** Competition Jury Technical Asset & Project Audit  
-**Institution:** Oakridge Collegiate Academy  
+**Institution:** Govt. Boys Qazi Sultan Higher Secondary School, Kunri  
 **Audit Standard:** Zero-Assumption Verification (Verified through automated tests, route builds, and live execution)  
 
 ---

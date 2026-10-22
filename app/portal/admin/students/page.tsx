@@ -371,7 +371,7 @@ export default function AdminStudentsPage() {
 
                 <div>
                   <label className="block font-semibold text-slate-700 mb-1">
-                    Oakridge Academy Email Address *
+                    School Email Address *
                   </label>
                   <input
                     type="email"
