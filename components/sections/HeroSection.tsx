@@ -13,8 +13,6 @@ import {
   Sparkles,
   ShieldCheck,
   CheckCircle2,
-  Compass,
-  Building,
   GraduationCap,
 } from "lucide-react";
 

@@ -2,11 +2,10 @@
 
 import React, { useState } from "react";
 import Image from "next/image";
-import Link from "next/link";
 import { Container } from "../layout/Container";
 import { Button } from "../ui/Button";
 import { Badge } from "../ui/Badge";
-import { ArrowRight, Camera, Sparkles, Building, Maximize2 } from "lucide-react";
+import { ArrowRight, Camera, Maximize2 } from "lucide-react";
 
 interface CampusPhoto {
   id: string;

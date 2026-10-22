@@ -1,7 +1,6 @@
 import React from "react";
 import { Container } from "../layout/Container";
 import { Button } from "./Button";
-import { Badge } from "./Badge";
 import { ArrowRight, Calendar, Sparkles } from "lucide-react";
 import { cn } from "@/lib/utils";
 
