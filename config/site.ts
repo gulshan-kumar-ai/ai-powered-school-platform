@@ -7,12 +7,12 @@ import { schoolFaqs } from "@/data/faqs";
 import { admissionSteps, admissionDates } from "@/data/admissions";
 
 export const siteConfig: SiteConfig = {
-  name: "Government Qazi Sultan Higher Secondary School, Kunri",
+  name: "Govt. Boys Qazi Sultan Higher Secondary School, Kunri",
   shortName: "GQSHSS Kunri",
   acronym: "GQSHSS",
   tagline: "Striving for Excellence, Inspiring Character, Empowering Future Generations",
   description:
-    "Government Qazi Sultan Higher Secondary School (GQSHSS) is a prominent public boys' educational institution located on Station Road, Kunri, within the Umerkot District of Sindh, Pakistan (Mirpur Khas Region), offering comprehensive education from primary to higher secondary levels (Class XI & XII).",
+    "Govt. Boys Qazi Sultan Higher Secondary School, Kunri (GQSHSS) is a prominent public boys' educational institution located on Station Road, Kunri, within the Umerkot District of Sindh, Pakistan (Mirpur Khas Region), offering comprehensive education from primary to higher secondary levels (Class XI & XII).",
   established: 1988,
   motto: "وَأَن لَّيْسَ لِلْإِنسَانِ إِلَّا مَا سَعَىٰ (And that man can have nothing but what he strives for)",
   logo: "/images/school/logo.png",
