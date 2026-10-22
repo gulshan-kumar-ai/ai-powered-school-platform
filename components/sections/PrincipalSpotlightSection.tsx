@@ -1,13 +1,11 @@
 import React from "react";
 import Image from "next/image";
-import Link from "next/link";
 import { Container } from "../layout/Container";
 import { Badge } from "../ui/Badge";
 import { Button } from "../ui/Button";
 import {
   GraduationCap,
   Award,
-  BookOpen,
   ArrowRight,
   ShieldCheck,
   Mail,

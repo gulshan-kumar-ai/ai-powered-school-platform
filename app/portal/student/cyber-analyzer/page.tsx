@@ -1,7 +1,6 @@
 "use client";
 
 import React, { useState } from "react";
-import Link from "next/link";
 import { PortalLayout } from "@/components/portal/PortalLayout";
 import { Card, CardHeader, CardTitle, CardContent } from "@/components/ui/Card";
 import { Badge } from "@/components/ui/Badge";
@@ -17,7 +16,6 @@ import {
   Search,
   CheckCircle2,
   Lock,
-  ExternalLink,
   Info,
   RotateCcw,
   Sparkles,

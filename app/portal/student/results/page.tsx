@@ -7,7 +7,7 @@ import { PortalLayout } from "@/components/portal/PortalLayout";
 import { Card, CardHeader, CardTitle, CardContent } from "@/components/ui/Card";
 import { Badge } from "@/components/ui/Badge";
 import { schoolStore } from "@/lib/data/school-store";
-import { Award, TrendingUp, BarChart3, CheckCircle2 } from "lucide-react";
+import { Award, TrendingUp, BarChart3 } from "lucide-react";
 
 export default function StudentResultsPage() {
   const studentId = "20000000-0000-0000-0000-000000000001"; // Alex Vance

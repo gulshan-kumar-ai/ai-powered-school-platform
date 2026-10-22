@@ -22,9 +22,6 @@ export default function StudentDashboardPage() {
 
   const student = schoolStore.getStudentById(studentId);
   const timetable = schoolStore.getStudentTimetable(sectionId);
-  const attendance = schoolStore.getStudentAttendance(studentId);
-  const assignments = schoolStore.getAssignments({ sectionId, isPublishedOnly: true });
-  const publishedMarks = schoolStore.getStudentPublishedMarks(studentId);
   const announcements = schoolStore.getAnnouncements("students");
 
   return (
