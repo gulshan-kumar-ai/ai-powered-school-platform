@@ -51,6 +51,20 @@ const nextConfig: NextConfig = {
       },
     },
   },
+  async redirects() {
+    return [
+      {
+        source: "/login",
+        destination: "/portal/login",
+        permanent: false,
+      },
+      {
+        source: "/student-life",
+        destination: "/events",
+        permanent: false,
+      },
+    ];
+  },
   async headers() {
     return [
       {

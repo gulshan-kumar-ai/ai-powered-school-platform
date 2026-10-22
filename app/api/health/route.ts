@@ -7,9 +7,10 @@ export async function GET() {
 
   const supabaseConfigured = isSupabaseConfigured();
   const aiKeyConfigured = Boolean(
+    process.env.FAST_SUPER_API_KEY ||
+    process.env.GROQ_API_KEY ||
     process.env.GEMINI_API_KEY ||
-    process.env.OPENAI_API_KEY ||
-    process.env.NEXT_PUBLIC_GEMINI_API_KEY
+    process.env.OPENAI_API_KEY
   );
 
   const healthData = {
@@ -34,7 +35,7 @@ export async function GET() {
       },
       aiEngine: {
         status: "pass",
-        provider: aiKeyConfigured ? "Google Gemini / OpenAI LLM" : "Deterministic Offline RAG Fallback",
+        provider: aiKeyConfigured ? "Fast & Super API / Google Gemini / OpenAI" : "Deterministic Offline RAG Fallback",
         configured: aiKeyConfigured,
       },
       memory: {

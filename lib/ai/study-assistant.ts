@@ -58,8 +58,12 @@ export async function generateStudyAssistantResponse(
     })
     .slice(0, 2);
 
-  // 3. Check for external API (optional Gemini / OpenAI)
-  const apiKey = process.env.GEMINI_API_KEY || process.env.OPENAI_API_KEY;
+  // 3. Check for external API (optional Gemini / OpenAI / Fast & Super / Groq)
+  const apiKey =
+    process.env.GEMINI_API_KEY ||
+    process.env.OPENAI_API_KEY ||
+    process.env.FAST_SUPER_API_KEY ||
+    process.env.GROQ_API_KEY;
   let responseContent = "";
   let engineMode: "cloud_live" | "offline_rag_verified" = "offline_rag_verified";
 
@@ -364,6 +368,36 @@ ${citations.map((c) => `[Source: ${c.document_title} - ${c.section_or_page}]: ${
     if (res.ok) {
       const data = await res.json();
       return data.choices?.[0]?.message?.content || "";
+    }
+  }
+
+  // 3. Fast & Super / Groq OpenAI-compatible Provider
+  const fastSuperKey = process.env.FAST_SUPER_API_KEY || process.env.GROQ_API_KEY;
+  if (fastSuperKey) {
+    const rawBaseUrl = process.env.FAST_SUPER_API_BASE_URL || "https://api.openai.com/v1";
+    const baseUrl = rawBaseUrl.trim().replace(/\/+$/, "");
+    const endpoint = baseUrl.endsWith("/chat/completions") ? baseUrl : `${baseUrl}/chat/completions`;
+    const model = process.env.FAST_SUPER_MODEL || "gpt-4o-mini";
+    const res = await fetch(endpoint, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+        Authorization: `Bearer ${fastSuperKey}`,
+      },
+      body: JSON.stringify({
+        model,
+        messages: [
+          { role: "system", content: systemInstructions },
+          { role: "user", content: prompt },
+        ],
+        max_tokens: 800,
+        temperature: 0.3,
+      }),
+    });
+    if (res.ok) {
+      const data = await res.json();
+      const content = data.choices?.[0]?.message?.content;
+      if (content) return content;
     }
   }
 

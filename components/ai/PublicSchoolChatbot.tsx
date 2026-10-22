@@ -72,38 +72,60 @@ async function readChatStream(
   let finalProvider: string | undefined;
   let finalIsFallback: boolean | undefined;
   let done = false;
+  let buffer = "";
 
   while (!done) {
     const { value, done: readerDone } = await reader.read();
-    done = readerDone;
+    if (readerDone) {
+      done = true;
+    }
     if (value) {
-      const rawChunk = decoder.decode(value, { stream: true });
-      const lines = rawChunk.split("\n\n");
+      buffer += decoder.decode(value, { stream: !done });
+    }
 
-      for (const line of lines) {
-        if (line.startsWith("event: metadata")) {
-          const dataStr = line.replace("event: metadata\ndata: ", "").trim();
-          try {
-            const meta = JSON.parse(dataStr);
-            if (meta.citations) finalCitations = meta.citations;
-            if (meta.provider) finalProvider = meta.provider;
-            if (typeof meta.isFallback === "boolean") finalIsFallback = meta.isFallback;
-            callbacks.onMetadata?.(meta);
-          } catch {
-            // Ignore JSON parse errors in metadata
-          }
-        } else if (line.startsWith("event: delta")) {
-          const dataStr = line.replace("event: delta\ndata: ", "").trim();
-          try {
-            const delta = JSON.parse(dataStr);
+    const blocks = buffer.split(/\r?\n\r?\n/);
+    buffer = done ? "" : (blocks.pop() ?? "");
+
+    for (const block of blocks) {
+      const trimmedBlock = block.trim();
+      if (!trimmedBlock) continue;
+
+      let eventType = "";
+      const dataLines: string[] = [];
+
+      for (const line of trimmedBlock.split(/\r?\n/)) {
+        const trimmedLine = line.trim();
+        if (trimmedLine.startsWith("event:")) {
+          eventType = trimmedLine.slice(6).trim();
+        } else if (trimmedLine.startsWith("data:")) {
+          dataLines.push(trimmedLine.slice(5).trim());
+        }
+      }
+
+      const dataStr = dataLines.join("\n");
+
+      if (eventType === "metadata" || (!eventType && dataStr.startsWith("{") && dataStr.includes('"citations"'))) {
+        try {
+          const meta = JSON.parse(dataStr);
+          if (meta.citations) finalCitations = meta.citations;
+          if (meta.provider) finalProvider = meta.provider;
+          if (typeof meta.isFallback === "boolean") finalIsFallback = meta.isFallback;
+          callbacks.onMetadata?.(meta);
+        } catch {
+          // Ignore JSON parse errors in metadata
+        }
+      } else if (eventType === "delta") {
+        try {
+          const delta = JSON.parse(dataStr);
+          if (typeof delta.text === "string") {
             accumulatedText += delta.text;
             callbacks.onDelta?.(delta.text, accumulatedText);
-          } catch {
-            // Ignore parse errors on delta
           }
-        } else if (line.startsWith("event: done")) {
-          done = true;
+        } catch {
+          // Ignore parse errors on delta
         }
+      } else if (eventType === "done" || dataStr === "[DONE]") {
+        done = true;
       }
     }
   }

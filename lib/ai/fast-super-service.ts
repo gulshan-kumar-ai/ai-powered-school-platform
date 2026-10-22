@@ -46,7 +46,7 @@ export const PUBLIC_SCHOOL_KNOWLEDGE: PublicFact[] = [
     title: "Office Hours & Campus Access",
     url: "/contact",
     answer:
-      "The Main Administrative Office and Admissions Desk are open Monday through Friday from 8:00 AM to 4:00 PM. Campus visits and student-led prospective tours take place on Tuesday and Thursday mornings by prior appointment.",
+      `The Main Administrative Office and Admissions Desk are open ${siteConfig.contact.officeHours}. Campus visits and prospective tours take place on Tuesday and Thursday mornings (${siteConfig.contact.campusTourHours}) by prior appointment.`,
   },
   {
     keywords: ["contact", "phone", "email", "address", "location", "call"],
@@ -57,7 +57,7 @@ export const PUBLIC_SCHOOL_KNOWLEDGE: PublicFact[] = [
   },
   {
     keywords: ["academic", "curriculum", "ap", "stem", "program", "course", "subjects"],
-    title: "Academic Programs & AP Curriculum",
+    title: "Academic Programs & Curriculum",
     url: "/academics",
     answer:
       "Govt. Boys Qazi Sultan Higher Secondary School, Kunri delivers comprehensive education from primary to higher secondary levels (Class XI & XII), affiliated with the Board of Intermediate and Secondary Education (BISE) Mirpur Khas, featuring science, humanities, and computer studies curricula.",
@@ -72,7 +72,7 @@ export const PUBLIC_SCHOOL_KNOWLEDGE: PublicFact[] = [
   {
     keywords: ["sport", "athletic", "club", "extracurricular", "activity", "music"],
     title: "Athletics & Student Life",
-    url: "/student-life",
+    url: "/events",
     answer:
       "Govt. Boys Qazi Sultan Higher Secondary School, Kunri offers over 32 student-run clubs, competitive sports tournaments (Cricket, Football, Athletics), quiz societies, and community self-reliance initiatives through the School Management Committee.",
   },
