@@ -1,0 +1,33 @@
+{
+  "name": "smart-school-website",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "eslint",
+    "test": "tsx tests/phase2-authorisation-data.test.ts && tsx tests/phase3-learning-gamification.test.ts && tsx tests/phase4-ai-platform.test.ts && tsx tests/phase5-production-readiness.test.ts && tsx tests/phase6-e2e-journeys.test.ts && tsx tests/phase7-fast-super-chatbot.test.ts && tsx tests/phase8-live-connection.test.ts"
+  },
+  "dependencies": {
+    "@supabase/supabase-js": "^2.109.0",
+    "clsx": "^2.1.1",
+    "lucide-react": "^1.61.0",
+    "next": "16.4.2",
+    "react": "19.3.0",
+    "react-dom": "19.3.0",
+    "tailwind-merge": "^3.7.0",
+    "zod": "^4.6.7"
+  },
+  "devDependencies": {
+    "@tailwindcss/turbopack": "^4",
+    "@types/node": "^20",
+    "@types/react": "^19",
+    "@types/react-dom": "^19",
+    "eslint": "^9",
+    "eslint-config-next": "16.4.2",
+    "tailwindcss": "^4",
+    "tsx": "^4.23.15",
+    "typescript": "^5"
+  }
+}

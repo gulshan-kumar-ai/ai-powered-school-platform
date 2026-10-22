@@ -1,0 +1,50 @@
+@import "tailwindcss";
+
+@layer base {
+  :root {
+    --navy-950: #08162b;
+    --navy-900: #0f2744;
+    --navy-800: #19385c;
+    --navy-700: #254a75;
+    --navy-50: #f0f4f9;
+
+    --sky-accent: #0284c7;
+    --sky-accent-hover: #0369a1;
+    --sky-accent-light: #e0f2fe;
+
+    --teal-accent: #0d9488;
+    --teal-accent-light: #ccfbf1;
+  }
+
+  html {
+    scroll-behavior: smooth;
+    text-rendering: optimizeLegibility;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  body {
+    background-color: #ffffff;
+    color: #0f172a;
+    font-family: var(--font-geist-sans), -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  }
+
+  ::selection {
+    background-color: #bae6fd;
+    color: #0c4a6e;
+  }
+}
+
+/* Subtle focus indicators for accessibility */
+*:focus-visible {
+  outline: 2px solid #0284c7;
+  outline-offset: 2px;
+}
+
+/* Tasteful subtle grid pattern utility */
+.bg-grid-pattern {
+  background-size: 32px 32px;
+  background-image: 
+    linear-gradient(to right, rgba(15, 39, 68, 0.04) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(15, 39, 68, 0.04) 1px, transparent 1px);
+}

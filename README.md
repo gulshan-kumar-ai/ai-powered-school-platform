@@ -275,5 +275,3 @@ The repository includes a comprehensive automated verification suite with 103 as
 ---
 
 &copy; 2026 Oakridge Collegiate Academy. All rights reserved.
-#   a i - p o w e r e d - s c h o o l - p l a t f o r m  
- 
