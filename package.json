@@ -7,6 +7,7 @@
     "build": "next build",
     "start": "next start",
     "lint": "eslint",
+    "type-check": "tsc --noEmit",
     "test": "tsx tests/phase2-authorisation-data.test.ts && tsx tests/phase3-learning-gamification.test.ts && tsx tests/phase4-ai-platform.test.ts && tsx tests/phase5-production-readiness.test.ts && tsx tests/phase6-e2e-journeys.test.ts && tsx tests/phase7-fast-super-chatbot.test.ts && tsx tests/phase8-live-connection.test.ts"
   },
   "dependencies": {

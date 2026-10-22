@@ -11,38 +11,42 @@ import {
   Clock,
   ExternalLink,
   ShieldCheck,
+  Award,
+  Sparkles,
 } from "lucide-react";
 
 export function Footer() {
   const currentYear = 2026;
 
   return (
-    <footer className="bg-[#08162b] text-slate-300 border-t border-slate-800">
+    <footer className="bg-[#050d1a] text-slate-300 border-t border-slate-800/90 relative overflow-hidden">
+      {/* Background ambient lighting */}
+      <div className="absolute top-0 right-1/4 w-96 h-96 bg-sky-500/5 rounded-full blur-3xl pointer-events-none" />
+
       {/* Top Banner Notice */}
-      <div className="bg-[#0f2744] border-b border-slate-800 py-3">
+      <div className="bg-[#0a192f] border-b border-slate-800/80 py-3.5">
         <Container className="flex flex-col sm:flex-row items-center justify-between gap-3 text-xs">
           <div className="flex items-center gap-2">
-            <Badge variant="accent" size="sm">
-              Official School Platform
+            <Badge variant="accent" size="sm" className="font-bold">
+              Official Institutional Platform
             </Badge>
-            <span className="text-slate-300">
-              Govt. Boys Qazi Sultan Higher Secondary School, Kunri — Smart School Management &amp; Learning Platform.
+            <span className="text-slate-300 font-medium">
+              Govt. Boys Qazi Sultan Higher Secondary School, Kunri — Smart School Management Platform
             </span>
           </div>
           <div className="flex items-center gap-2 text-slate-400">
             <ShieldCheck className="w-4 h-4 text-emerald-400" />
-            <span>Accessible • Modular • Type-Safe Next.js 16</span>
+            <span>BISE Mirpur Khas • Sindh Education &amp; Literacy Dept.</span>
           </div>
         </Container>
       </div>
 
-
-      <Container className="py-14 sm:py-16">
+      <Container className="py-14 sm:py-16 relative z-10">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-10">
           {/* Column 1 & 2: Brand Information */}
           <div className="lg:col-span-2 space-y-4">
-            <Link href="/" className="inline-flex items-center gap-3 group">
-              <div className="relative w-12 h-12 rounded-xl bg-white/10 p-1 flex items-center justify-center border border-white/20 group-hover:bg-white/20 transition-all shrink-0">
+            <Link href="/" className="inline-flex items-center gap-3.5 group">
+              <div className="relative w-12 h-12 rounded-xl bg-white/10 p-1 flex items-center justify-center border border-white/20 group-hover:bg-white/20 transition-all shrink-0 shadow-lg">
                 <Image
                   src="/images/school/logo.png"
                   alt={`${siteConfig.name} Official Logo Crest`}
@@ -52,25 +56,41 @@ export function Footer() {
                 />
               </div>
               <div className="flex flex-col">
-                <span className="font-bold text-lg text-white tracking-tight">
+                <span className="font-extrabold text-lg text-white tracking-tight group-hover:text-sky-300 transition-colors">
                   {siteConfig.name}
                 </span>
-                <span className="text-xs text-sky-300/80 italic">
-                  {siteConfig.motto}
+                <span className="text-xs text-amber-300/90 font-arabic mt-0.5" dir="rtl">
+                  گورنمنٹ بوائز ہائر سیکنڈری اسکول قاضی سلطان کنری
                 </span>
               </div>
             </Link>
 
-            <p className="text-sm text-slate-400 leading-relaxed max-w-sm">
+            {/* Quranic motto */}
+            <div className="p-3 rounded-xl bg-slate-900/80 border border-slate-800 text-xs text-sky-200">
+              <div className="font-arabic font-bold text-amber-300 text-sm mb-1" dir="rtl">
+                وَأَن لَّيْسَ لِلْإِنسَانِ إِلَّا مَا سَعَىٰ
+              </div>
+              <span className="italic text-slate-300">
+                &ldquo;And that man can have nothing but what he strives for&rdquo;
+              </span>
+            </div>
+
+            <p className="text-xs sm:text-sm text-slate-400 leading-relaxed max-w-sm">
               {siteConfig.description}
             </p>
 
-            <div className="pt-2 text-xs text-slate-400 space-y-1">
-              <div>
-                <strong className="text-slate-200">Affiliation:</strong> Board of Intermediate and Secondary Education (BISE) Mirpur Khas &amp; School Education &amp; Literacy Department, Government of Sindh
+            <div className="pt-2 text-xs text-slate-400 space-y-1.5">
+              <div className="flex items-center gap-2">
+                <Award className="w-3.5 h-3.5 text-amber-400 shrink-0" />
+                <span>
+                  <strong className="text-slate-200">Affiliation:</strong> Board of Intermediate and Secondary Education (BISE) Mirpur Khas
+                </span>
               </div>
-              <div>
-                <strong className="text-slate-200">Established:</strong> {siteConfig.established}
+              <div className="flex items-center gap-2">
+                <Sparkles className="w-3.5 h-3.5 text-sky-400 shrink-0" />
+                <span>
+                  <strong className="text-slate-200">Established:</strong> {siteConfig.established} • Kunri, Umerkot District
+                </span>
               </div>
             </div>
           </div>
@@ -78,9 +98,9 @@ export function Footer() {
           {/* Column 3: Quick Navigation */}
           <div className="space-y-3">
             <h4 className="text-xs font-bold uppercase tracking-wider text-white">
-              Navigation
+              Institutional Links
             </h4>
-            <ul className="space-y-2 text-sm">
+            <ul className="space-y-2 text-xs sm:text-sm">
               {siteConfig.navigation.map((item) => (
                 <li key={item.href}>
                   <Link
@@ -94,7 +114,7 @@ export function Footer() {
               <li>
                 <Link
                   href="/portal"
-                  className="text-sky-400 hover:text-sky-300 transition-colors font-medium"
+                  className="text-sky-400 hover:text-sky-300 transition-colors font-semibold"
                 >
                   Portal Directory
                 </Link>
@@ -105,9 +125,9 @@ export function Footer() {
           {/* Column 4: Academic Pathways */}
           <div className="space-y-3">
             <h4 className="text-xs font-bold uppercase tracking-wider text-white">
-              Academics
+              Academic Streams
             </h4>
-            <ul className="space-y-2 text-sm text-slate-400">
+            <ul className="space-y-2 text-xs sm:text-sm text-slate-400">
               {siteConfig.academicPrograms.map((prog) => (
                 <li key={prog.id}>
                   <Link
@@ -121,19 +141,19 @@ export function Footer() {
               <li className="pt-1">
                 <Link
                   href="/admissions"
-                  className="text-xs text-slate-300 hover:text-white flex items-center gap-1"
+                  className="text-xs text-sky-300 hover:text-white flex items-center gap-1 font-semibold"
                 >
-                  <span>Admissions & Tuition</span>
+                  <span>Admissions &amp; Prospectus</span>
                   <ExternalLink className="w-3 h-3" />
                 </Link>
               </li>
             </ul>
           </div>
 
-          {/* Column 5: Configurable Contact */}
+          {/* Column 5: Official Campus Office */}
           <div className="space-y-3">
             <h4 className="text-xs font-bold uppercase tracking-wider text-white">
-              Campus Office
+              Station Road Campus
             </h4>
             <div className="space-y-2.5 text-xs text-slate-400">
               <div className="flex items-start gap-2">
@@ -145,11 +165,11 @@ export function Footer() {
               </div>
               <div className="flex items-center gap-2">
                 <Phone className="w-4 h-4 text-sky-400 shrink-0" />
-                <span>{siteConfig.contact.mainPhone}</span>
+                <span className="font-mono">{siteConfig.contact.mainPhone}</span>
               </div>
               <div className="flex items-center gap-2">
                 <Mail className="w-4 h-4 text-sky-400 shrink-0" />
-                <span>{siteConfig.contact.mainEmail}</span>
+                <span className="font-mono">{siteConfig.contact.mainEmail}</span>
               </div>
               <div className="flex items-start gap-2 pt-1">
                 <Clock className="w-4 h-4 text-sky-400 shrink-0 mt-0.5" />
@@ -159,25 +179,23 @@ export function Footer() {
           </div>
         </div>
 
-        {/* Bottom Legal & Architecture Notice */}
-        <div className="mt-12 pt-8 border-t border-slate-800 text-xs text-slate-500 flex flex-col md:flex-row items-center justify-between gap-4">
+        {/* Bottom Legal & Accreditations */}
+        <div className="mt-12 pt-8 border-t border-slate-800/90 text-xs text-slate-500 flex flex-col md:flex-row items-center justify-between gap-4">
           <p>
-            &copy; {currentYear} {siteConfig.name}. All rights reserved. Configurable
-            official institutional website.
+            &copy; {currentYear} {siteConfig.name}. All rights reserved. Government of Sindh.
           </p>
-          <div className="flex items-center gap-4">
-            <Link href="/about" className="hover:text-slate-400 transition-colors">About School</Link>
+          <div className="flex items-center gap-4 flex-wrap justify-center">
+            <Link href="/about" className="hover:text-slate-300 transition-colors">About School</Link>
             <span>•</span>
-            <Link href="/gallery" className="hover:text-slate-400 transition-colors font-semibold text-slate-300">Photo Gallery</Link>
+            <Link href="/gallery" className="hover:text-sky-300 transition-colors font-semibold text-slate-300">Photo Gallery</Link>
             <span>•</span>
-            <Link href="/admissions" className="hover:text-slate-400 transition-colors">Admissions</Link>
+            <Link href="/admissions" className="hover:text-slate-300 transition-colors">Admissions</Link>
             <span>•</span>
-            <Link href="/contact" className="hover:text-slate-400 transition-colors">Contact Directory</Link>
+            <Link href="/contact" className="hover:text-slate-300 transition-colors">Contact Office</Link>
             <span>•</span>
-            <Link href="/portal" className="hover:text-slate-400 transition-colors">Portal Hub</Link>
+            <Link href="/portal" className="hover:text-slate-300 transition-colors font-semibold text-sky-400">Portal Hub</Link>
           </div>
         </div>
-
       </Container>
     </footer>
   );

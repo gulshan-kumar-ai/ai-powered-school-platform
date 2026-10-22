@@ -493,6 +493,8 @@ export async function createFastSuperChatStream(params: {
         emitDone();
       };
 
+      let hasEmittedTokens = false;
+
       try {
         // 1. Privacy firewall check
         const privacyNotice = checkPrivacyViolations(userQuery);
@@ -633,7 +635,7 @@ export async function createFastSuperChatStream(params: {
         const reader = response.body.getReader();
         const decoder = new TextDecoder("utf-8");
         let buffer = "";
-        let hasEmittedTokens = false;
+        hasEmittedTokens = false;
 
         while (true) {
           const { value, done } = await reader.read();
@@ -696,7 +698,18 @@ export async function createFastSuperChatStream(params: {
         emitDone();
       } catch (streamErr) {
         console.warn("[FastSuperAPI] Error during stream processing:", streamErr);
-        emitError("Streaming interrupted. Please try again.");
+        if (!hasEmittedTokens) {
+          const { contextText, citations, hasRelevantFacts } =
+            retrieveSchoolKnowledgeContext(userQuery);
+          const localContent = generateLocalVerifiedResponse(
+            userQuery,
+            contextText,
+            hasRelevantFacts
+          );
+          await streamLocalResponse(localContent, citations, true);
+        } else {
+          emitError("Streaming interrupted. Please try again.");
+        }
       }
     },
   });

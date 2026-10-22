@@ -434,6 +434,8 @@ export function PublicSchoolChatbot() {
                         ? "bg-[#0f2744] text-white rounded-br-xs"
                         : msg.isError
                         ? "bg-rose-50 text-rose-950 rounded-bl-xs border border-rose-200"
+                        : msg.provider === "fast_and_super" && !msg.isFallback
+                        ? "bg-emerald-50/50 text-slate-900 rounded-bl-xs border border-emerald-300 shadow-xs"
                         : "bg-slate-100 text-slate-900 rounded-bl-xs border border-slate-200/80"
                     }`}
                   >
@@ -443,18 +445,30 @@ export function PublicSchoolChatbot() {
 
                     {/* Operational Mode Tag on Assistant Messages */}
                     {!isUser && !msg.isError && msg.content && !msg.isStreaming && (
-                      <div className="pt-1">
+                      <div className="pt-1.5 flex items-center gap-1.5">
                         {msg.provider === "fast_and_super" && !msg.isFallback ? (
-                          <span className="inline-flex items-center gap-1 px-1.5 py-0.5 rounded bg-emerald-100 text-[9px] font-semibold text-emerald-800 border border-emerald-300">
+                          <span className="inline-flex items-center gap-1 px-2 py-0.5 rounded-full bg-emerald-100 text-[9px] font-bold text-emerald-800 border border-emerald-300 shadow-2xs">
                             <span className="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse" />
-                            Live Fast & Super AI
+                            Live Fast & Super AI (Cloud Inference)
                           </span>
                         ) : (
-                          <span className="inline-flex items-center gap-1 px-1.5 py-0.5 rounded bg-slate-200/80 text-[9px] font-medium text-slate-700 border border-slate-300">
-                            <ShieldCheck className="w-2.5 h-2.5 text-slate-500" />
-                            Verified School Records (Local Fallback)
+                          <span className="inline-flex items-center gap-1 px-2 py-0.5 rounded-full bg-slate-200/90 text-[9px] font-medium text-slate-700 border border-slate-300">
+                            <ShieldCheck className="w-2.5 h-2.5 text-slate-600" />
+                            Verified School Records (Local Offline Fallback)
                           </span>
                         )}
+                      </div>
+                    )}
+
+                    {/* Active streaming source indicator */}
+                    {!isUser && !msg.isError && msg.isStreaming && (
+                      <div className="pt-1 flex items-center gap-1.5 text-[9px] text-sky-600 font-medium">
+                        <Sparkles className="w-3 h-3 animate-spin text-sky-500" />
+                        <span>
+                          {msg.provider === "fast_and_super" && !msg.isFallback
+                            ? "Streaming from Live Fast & Super Cloud AI..."
+                            : "Synthesizing from verified school records..."}
+                        </span>
                       </div>
                     )}
 

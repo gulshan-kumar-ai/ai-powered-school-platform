@@ -2,7 +2,8 @@ node_modules
 .next
 .git
 .github
-.env*.local
+.env*
+!.env.example
 .DS_Store
 coverage
 npm-debug.log*
