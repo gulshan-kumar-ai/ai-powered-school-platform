@@ -57,7 +57,7 @@ export const siteConfig: SiteConfig = {
   ],
 
   contact: {
-    schoolName: "Government Qazi Sultan Higher Secondary School Kunri",
+    schoolName: "Govt. Boys Qazi Sultan Higher Secondary School, Kunri",
     addressLine1: "Station Road Corridor, Bab-e-Ibraheem Momin Campus",
     addressLine2: "Kunri Taluka, Umerkot District, Mirpur Khas Region",
     cityStateZip: "Sindh, Pakistan",
